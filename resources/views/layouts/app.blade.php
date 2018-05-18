@@ -36,11 +36,17 @@
     <div id="app">
         @if(!Auth::guest())
             @include('inc.navbar')
+        @else
+            @include('inc.header')
+            @include('inc.carousel')
         @endif
         <div class="container">
             @include('inc.messages')
             @yield('content')
         </div>
+        @if(Auth::guest())
+            @include('inc.footer')
+        @endif
     </div>
 
     <!-- Scripts -->
