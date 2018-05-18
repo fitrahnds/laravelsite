@@ -34,28 +34,18 @@
 </head>
 <body>
     <div id="app">
-        @if(!Auth::guest())
-            @include('inc.navbar')
-        @else
-            @include('inc.header')
-            @include('inc.carousel')
-        @endif
+        @include('inc.header')
+        @include('inc.carousel')
         <div class="container">
             @include('inc.messages')
             @yield('content')
         </div>
-        @if(Auth::guest())
-            @include('inc.footer')
-        @endif
+        @include('inc.footer')
     </div>
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
 	<script src="{{ asset('js/main.js') }}"></script>
-    <script src="/vendor/unisharp/laravel-ckeditor/ckeditor.js"></script>
-    <script>
-        CKEDITOR.replace( 'article-ckeditor' );
-    </script>
 </body>
 </html>

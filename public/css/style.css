@@ -7,7 +7,7 @@ Colors:
 	Headers 	: #07090C
 	Primary 	: #EF233C
 	Dark 		: #07090C #222
-	Grey 		: #DDD
+	Grey 		: #AAA
 
 Fonts: Open Sans Lato
 
@@ -45,23 +45,23 @@ h1,h2,h3,h4,h5,h6 {
 }
 
 h1 {
-	font-size:31.104px;
+	font-size:25.104px;
 }
 
 h2 {
-	font-size:25.92px;
+	font-size:19.92px;
 }
 
 h3 {
-	font-size:21.6px;
+	font-size:15.6px;
 }
 
 h4 {
-	font-size:18px;
+	font-size:12px;
 }
 
 h5 {
-	font-size:15px;
+	font-size:9px;
 }
 
 a {
@@ -89,7 +89,7 @@ ul,ol{
 	width:100%;
 	height:40px;
 	padding:0px 15px;
-	border:1px solid #DDD;
+	border:1px solid #AAA;
 	background-color:transparent;
 }
 
@@ -120,7 +120,7 @@ textarea.input {
 	Top Header
 \*----------------------------*/
 #header #top-header {
-	border-bottom: 1px solid #DDD;
+	border-bottom: 1px solid #AAA;
 }
 
 .header-links {
@@ -129,11 +129,11 @@ textarea.input {
 
 .header-links ul li {
 	display: inline-block;
-	border-left: 1px solid #DDD;
+	border-left: 1px solid #AAA;
 }
 
 .header-links  ul li:last-child {
-	border-right:1px solid #DDD;
+	border-right:1px solid #AAA;
 }
 
 .header-links ul li a {
@@ -157,11 +157,11 @@ textarea.input {
 
 .header-social ul li {
 	display: inline-block;
-	border-left: 1px solid #DDD;
+	border-left: 1px solid #AAA;
 }
 
 .header-social ul li:last-child {
-	border-right:1px solid #DDD;
+	border-right:1px solid #AAA;
 }
 
 .header-social ul li a {
@@ -329,7 +329,7 @@ textarea.input {
 	
 	.header-links ul li {
 		margin-right:-4px;
-		border-bottom:1px solid #DDD;
+		border-bottom:1px solid #AAA;
 	}
 	
 	.header-social {
@@ -338,7 +338,7 @@ textarea.input {
 	
 	.header-social ul li {
 		margin-right:-4px;
-		border-top:1px solid #DDD;
+		border-top:1px solid #AAA;
 	}
 	
 	#header #center-header {
@@ -416,7 +416,7 @@ textarea.input {
 	left: 0;
 	width: 100%;
 	height: 2px;
-	background-color:#DDD;
+	background-color:#AAA;
 	z-index:-1;
 }
 
@@ -442,7 +442,7 @@ textarea.input {
 	height: 0;
 	border-style: solid;
 	border-width: 15px 0 0 15px;
-	border-color: transparent transparent transparent #DDD;
+	border-color: transparent transparent transparent #AAA;
 	z-index: 0;
 }
 
@@ -454,16 +454,16 @@ textarea.input {
 	display: inline-block;
 	height: 45px;
 	line-height: 43px;
-	border-bottom: 1px solid #DDD;
-	border-top: 1px solid #DDD;
-	border-left: 1px solid #DDD;
+	border-bottom: 1px solid #AAA;
+	border-top: 1px solid #AAA;
+	border-left: 1px solid #AAA;
 	border-right:none;
 	margin-right:-4px;
 	z-index:2;
 }
 
 .tab-nav li:last-child {
-	border-right: 1px solid #DDD;
+	border-right: 1px solid #AAA;
 	margin-right:0px;
 }
 
@@ -559,9 +559,9 @@ textarea.input {
 	z-index:22;
 }
 
-.article .article-body .article-info {
+/* .article .article-body .article-info {
 	margin-bottom:15px;
-}
+} */
 
 .article .article-info li {
 	display:inline-block;
@@ -579,12 +579,13 @@ textarea.input {
 }
 
 .article .article-info .article-category > a {
-	display:block;
-	padding: 0px 15px;
+	/* display:block; */
+	/* padding: 0px 15px; */
 	height: 30px;
 	line-height: 30px;
-	background: #EF233C;
-	color: #FFF;
+	/* background: #EF233C; */
+	/* color: #FFF; */
+	color:#EF233C;
 	text-transform: uppercase;
 	font-size: 12.5px;
 }
@@ -603,13 +604,18 @@ textarea.input {
 }
 
 .article .article-meta {
-	margin-bottom: 10px;
-	margin-top: 10px;
+	/* margin-bottom: 10px;
+	margin-top: 10px; */
+	display:inline-block;
+	color:#AAA;
+	font-weight:400;
+	font-size:12.5px;
+	text-transform:uppercase;
 }
 
 .article .article-meta li {
 	display:inline-block;
-	color:#DDD;
+	color:#AAA;
 	font-weight:400;
 	font-size:12.5px;
 	text-transform:uppercase;
@@ -653,7 +659,7 @@ textarea.input {
 	bottom: 0;
 	left:0;
 	right:0;
-	padding: 15px 5%;
+	padding: 10px 5%;
 	z-index:20;
 }
 
@@ -662,7 +668,7 @@ textarea.input {
 }
 
 .article.thumb-article .article-body .article-title > a:hover {
-	color: #DDD;
+	color: #AAA;
 }
 
 /*------------------------------------*\
@@ -695,7 +701,8 @@ textarea.input {
 }
 
 .article.row-article .article-img {
-	width:50%;
+	width:250px;
+	height: 125px;
 	float:left;
 	margin-right:30px;
 	margin-bottom:0px;
@@ -731,8 +738,8 @@ textarea.input {
 .article-pagination ul li a {
 	display:block;
 	padding:6px 15px;
-	color:#DDD;
-	border:1px solid #DDD;
+	color:#AAA;
+	border:1px solid #AAA;
 	font-size:12.5px;
 }
 .article-pagination ul li a:hover {
@@ -761,7 +768,7 @@ textarea.input {
 .widget .widget-title .title {
 	font-size:15px;
 	text-transform: uppercase;
-	color:#DDD;
+	color:#AAA;
 	margin-top:0px;
 }
 
@@ -843,7 +850,7 @@ textarea.input {
 }
 
 .footer-widget.subscribe-widget form input.input {
-	color:#DDD;
+	color:#AAA;
 }
 
 /*------------------------------------*\
@@ -933,7 +940,7 @@ textarea.input {
 	height: 45px;
 	line-height: 45px;
 	text-align: center;
-	background: #DDD;
+	background: #AAA;
 	color: #FFF;
 	border-radius: 50%;
 }
@@ -953,8 +960,8 @@ textarea.input {
 .widget-tags ul li a {
 	display: block;
 	padding: 6px 15px;
-	color: #DDD;
-	border: 1px solid #DDD;
+	color: #AAA;
+	border: 1px solid #AAA;
 	font-size: 12.5px;
 }
 
@@ -985,13 +992,13 @@ textarea.input {
 	display:inline-block;
 	font-size:12.5px;
 	text-transform:uppercase;
-	color: #DDD;
+	color: #AAA;
 }
 
 .article-breadcrumb > li + li:before {
 	content: "/\00a0";
     padding: 0px 3px;
-    color: #DDD;
+    color: #AAA;
 }
 
 /*------------------------------------*\
@@ -1054,7 +1061,7 @@ textarea.input {
 	top:60px;
 	bottom:15px;
 	width:1px;
-	background-color:#DDD;
+	background-color:#AAA;
 }
 
 .article-comments > .media {
@@ -1081,7 +1088,7 @@ textarea.input {
 }
 
 .article-comments .media .media-body .reply-time {
-    color: #DDD;
+    color: #AAA;
     font-size: 12.5px;
     font-weight: 400;
     margin-left: 10px;
@@ -1125,11 +1132,11 @@ textarea.input {
 }
 
 #footer p {
-	color:#DDD;
+	color:#AAA;
 }
 
 #footer a {
-	color:#DDD;
+	color:#AAA;
 }
 
 #footer a:hover {
@@ -1179,14 +1186,14 @@ textarea.input {
 .footer-links li a {
 	display: block;
 	padding: 0px 10px;
-	color: #DDD;
+	color: #AAA;
 	font-size: 12.5px;
 	text-align: center;
 	text-transform: uppercase;
 }
 
 .footer-copyright {
-	color: #DDD;
+	color: #AAA;
 }
 
 /*=========================================================
@@ -1201,7 +1208,7 @@ textarea.input {
 	width: 45px;
 	line-height: 45px;
 	display: inline-block;
-	border:1px solid #DDD;
+	border:1px solid #AAA;
 	background-color:transparent;
 	text-align: center;
 	cursor:pointer;
@@ -1262,7 +1269,7 @@ textarea.input {
 \*------------------------------------*/
 .owl-theme .owl-dots .owl-dot span {
     border: none;
-    background: #DDD;
+    background: #AAA;
 }
 
 .owl-theme .owl-dots .owl-dot:hover span {

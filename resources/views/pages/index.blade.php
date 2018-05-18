@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.index')
 
 @section('content')	
 		<!-- SECTION -->
@@ -807,108 +807,38 @@
 							<h2 class="title">Popular Posts</h2>
 						</div>
 						<!-- /section title -->
-						
-						<!-- ARTICLE -->
-						<article class="article row-article">
-							<div class="article-img">
-								<a href="#">
-									<img src="/storage/img/img-md-1.jpg" alt="">
-								</a>
-							</div>
-							<div class="article-body">
-								<ul class="article-info">
-									<li class="article-category"><a href="#">News</a></li>
-									<li class="article-type"><i class="fa fa-file-text"></i></li>
-								</ul>
-								<h3 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h3>
-								<ul class="article-meta">
-									<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-									<li><i class="fa fa-comments"></i> 33</li>
-								</ul>
-								<p>Populo tritani laboramus ex mei, no eum iuvaret ceteros euripidis, ne alia sadipscing mei. Te inciderint cotidieque pro, ei iisque docendi qui.</p>
-							</div>
-						</article>
-						<!-- /ARTICLE -->
-						
-						<!-- ARTICLE -->
-						<article class="article row-article">
-							<div class="article-img">
-								<a href="#">
-									<img src="/storage/img/img-md-2.jpg" alt="">
-								</a>
-							</div>
-							<div class="article-body">
-								<ul class="article-info">
-									<li class="article-category"><a href="#">News</a></li>
-									<li class="article-type"><i class="fa fa-file-text"></i></li>
-								</ul>
-								<h3 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h3>
-								<ul class="article-meta">
-									<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-									<li><i class="fa fa-comments"></i> 33</li>
-								</ul>
-								<p>Populo tritani laboramus ex mei, no eum iuvaret ceteros euripidis, ne alia sadipscing mei. Te inciderint cotidieque pro, ei iisque docendi qui.</p>
-							</div>
-						</article>
-						<!-- /ARTICLE -->
-						
-						<!-- ARTICLE -->
-						<article class="article row-article">
-							<div class="article-img">
-								<a href="#">
-									<img src="/storage/img/img-md-3.jpg" alt="">
-								</a>
-							</div>
-							<div class="article-body">
-								<ul class="article-info">
-									<li class="article-category"><a href="#">News</a></li>
-									<li class="article-type"><i class="fa fa-file-text"></i></li>
-								</ul>
-								<h3 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h3>
-								<ul class="article-meta">
-									<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-									<li><i class="fa fa-comments"></i> 33</li>
-								</ul>
-								<p>Populo tritani laboramus ex mei, no eum iuvaret ceteros euripidis, ne alia sadipscing mei. Te inciderint cotidieque pro, ei iisque docendi qui.</p>
-							</div>
-						</article>
-						<!-- /ARTICLE -->
-						
-						<!-- ARTICLE -->
-						<article class="article row-article">
-							<div class="article-img">
-								<a href="#">
-									<img src="/storage/img/img-md-4.jpg" alt="">
-								</a>
-							</div>
-							<div class="article-body">
-								<ul class="article-info">
-									<li class="article-category"><a href="#">News</a></li>
-									<li class="article-type"><i class="fa fa-file-text"></i></li>
-								</ul>
-								<h3 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h3>
-								<ul class="article-meta">
-									<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-									<li><i class="fa fa-comments"></i> 33</li>
-								</ul>
-								<p>Populo tritani laboramus ex mei, no eum iuvaret ceteros euripidis, ne alia sadipscing mei. Te inciderint cotidieque pro, ei iisque docendi qui.</p>
-							</div>
-						</article>
-						<!-- /ARTICLE -->
-						
-						<!-- pagination -->
-						<div class="article-pagination">
-							<ul> 
-								<li class="active"><a href="#" class="active">1</a></li>
-								<li><a href="#">2</a></li>
-								<li><a href="#">3</a></li>
-								<li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-							</ul>
-						</div>
-						<!-- /pagination -->
+
+						@if(isset($posts))
+						@foreach($posts as $post)
+							<!-- ARTICLE -->
+							<article class="article row-article">
+								<div class="article-img">
+									<a href="#">
+										<img src="/storage/cover_images/{{$post->cover_img}}" alt="{{$post->title}}">
+									</a>
+								</div>
+								<div class="article-body">
+									<ul class="article-info">
+										<li class="article-category"><a href="#">News</a></li>&nbsp;
+										<li class="article-meta"><i class="fa fa-clock-o"></i> {{date_format($post->created_at,"d M Y H:i")}}</li>
+									</ul>
+									<h3 class="article-title"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
+									<p>
+										@if (strlen($post->body) > 150)
+											{!!substr($post->body, 0, 150)!!}
+										@else
+											{!!$post->body!!}
+										@endif
+									</p>
+								</div>
+							</article>
+							<!-- /ARTICLE -->
+						@endforeach
+						{{$posts->links()}}
+					@else
+						<p>No posts found</p>
+					@endif
 					</div>
-					<!-- /Main Column -->
-					
 					<!-- Aside Column -->
 					<div class="col-md-4">
 						<!-- article widget -->
