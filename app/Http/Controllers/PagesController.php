@@ -4,12 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
+use App\Category;
 
 class PagesController extends Controller
 {
 	public function index(){
-		$posts = Post::orderBy('created_at', 'desc')->paginate(10);
-        return view('pages.index')->with('posts', $posts);
+		$data = array(
+            'posts' => Post::orderBy('created_at', 'desc')->paginate(10),
+            'category' => Category::all()
+        );
+		//echo "<pre>".print_r($posts, true)."</pre>";
+        return view('pages.index')->with($data);
 	}
 	public function about(){
 		$title = "About";

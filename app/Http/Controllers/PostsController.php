@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Post;
+use App\Category;
 //use DB;
 
 class PostsController extends Controller
@@ -30,8 +31,11 @@ class PostsController extends Controller
 		//$posts = DB::select('SELECT * FROM posts');
 		//$posts = Post::orderBy('created_at', 'desc')->take(1)->get();
 		
-		$posts = Post::orderBy('created_at', 'desc')->paginate(10);
-        return view('posts.index')->with('posts', $posts);
+        $data = array(
+            'posts' => Post::orderBy('created_at', 'desc')->paginate(10),
+            'category' => Category::all()
+        );
+        return view('posts.index')->with($data);
     }
 
     /**
@@ -41,7 +45,10 @@ class PostsController extends Controller
      */
     public function create()
     {
-        return view('posts.create');
+        $category = Category::pluck('name','id');
+        // echo "<pre>".print_r($category, true)."</pre>";
+        // die();
+        return view('posts.create')->with('category', $category);
     }
 
     /**
@@ -55,6 +62,7 @@ class PostsController extends Controller
         $this->validate($request, [
 			'title' => 'required',
             'body' => 'required',
+            'category_id' => 'required',
             'cover_img' => 'image|nullable|max:1999'
         ]);
 
@@ -77,6 +85,7 @@ class PostsController extends Controller
         $post = new Post;
         $post->title = $request->input('title');
         $post->body = $request->input('body');
+        $post->category_id = $request->input('category_id');
         $post->user_id = auth()->user()->id;
         $post->cover_img = $fileNameToStore;
         $post->save();
@@ -124,6 +133,7 @@ class PostsController extends Controller
         $this->validate($request, [
 			'title' => 'required',
             'body' => 'required',
+            'category_id' => 'required',
             'cover_img' => 'image|nullable|max:1999'
         ]);
         
@@ -143,6 +153,7 @@ class PostsController extends Controller
         $post = Post::find($id);
         $post->title = $request->input('title');
         $post->body = $request->input('body');
+        $post->category_id = $request->input('category_id');
         if($request->hasFile('cover_img')){
             if($post->cover_img !== "noimage.jpg"){
                 //Delete Image

@@ -12,6 +12,10 @@
 			{{Form::textarea('body', '', ['id'=>'article-ckeditor', 'class'=>'form-control', 'placeholder'=>'Input Content Article'])}}
 		</div>
 		<div class="form-group">
+			{{Form::label('Category')}}
+			{{Form::select('category_id', $category, ['class'=>'form-control'])}}
+		</div>
+		<div class="form-group">
 			{{Form::file('cover_img')}}
 		</div>
 		{{Form::submit('Submit', ['class'=>'btn btn-primary'])}}

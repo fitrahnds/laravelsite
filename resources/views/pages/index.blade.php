@@ -14,12 +14,10 @@
 							<h2 class="title">Trending Posts</h2>
 							<!-- tab nav -->
 							<ul class="tab-nav pull-right">
-								<li class="active"><a data-toggle="tab" href="#tab1">All</a></li>
-								<li><a data-toggle="tab" href="#tab1">News</a></li>
-								<li><a data-toggle="tab" href="#tab1">Sport</a></li>
-								<li><a data-toggle="tab" href="#tab1">Music</a></li>
-								<li><a data-toggle="tab" href="#tab1">Business</a></li>
-								<li><a data-toggle="tab" href="#tab1">Lifestyle</a></li>
+								<li class="active"><a data-toggle="tab" href="#all">All</a></li>
+								@foreach($category as $list)
+									<li><a data-toggle="tab" href="#{{$list->slug}}">{{$list->name}}</a></li>
+								@endforeach
 							</ul>
 							<!-- /tab nav -->
 						</div>
@@ -28,223 +26,117 @@
 						<!-- Tab content -->
 						<div class="tab-content">
 							<!-- tab1 -->
-							<div id="tab1" class="tab-pane fade in active">
+							<div id="all" class="tab-pane fade in active">
 								<!-- row -->
 								<div class="row">
-									<!-- Column 1 -->
-									<div class="col-md-3 col-sm-6">
-										<!-- ARTICLE -->
-										<article class="article">
-											<div class="article-img">
-												<a href="#">
-													<img src="/storage/img/img-md-1.jpg" alt="">
-												</a>
-												<ul class="article-info">
-													<li class="article-type"><i class="fa fa-camera"></i></li>
-												</ul>
-											</div>
-											<div class="article-body">
-												<h4 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h4>
-												<ul class="article-meta">
-													<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-													<li><i class="fa fa-comments"></i> 33</li>
-												</ul>
-											</div>
-										</article>
-										<!-- /ARTICLE -->
-									</div>
-									<!-- /Column 1 -->
-									
-									<!-- Column 2 -->
-									<div class="col-md-3 col-sm-6">
-										<!-- ARTICLE -->
-										<article class="article">
-											<div class="article-img">
-												<a href="#">
-													<img src="/storage/img/img-md-2.jpg" alt="">
-												</a>
-											</div>
-											<div class="article-body">
-												<h4 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h4>
-												<ul class="article-meta">
-													<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-													<li><i class="fa fa-comments"></i> 33</li>
-												</ul>
-											</div>
-										</article>
-										<!-- /ARTICLE -->
-									</div>
-									<!-- /Column 2 -->
-									
-									<!-- Column 3 -->
-									<div class="col-md-3 col-sm-6">
-										<!-- ARTICLE -->
-										<article class="article">
-											<div class="article-img">
-												<a href="#">
-													<img src="/storage/img/img-md-3.jpg" alt="">
-												</a>
-												<ul class="article-info">
-													<li class="article-type"><i class="fa fa-file-text"></i></li>
-												</ul>
-											</div>
-											<div class="article-body">
-												<h4 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h4>
-												<ul class="article-meta">
-													<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-													<li><i class="fa fa-comments"></i> 33</li>
-												</ul>
-											</div>
-										</article>
-										<!-- /ARTICLE -->
-									</div>
-									<!-- /Column 3 -->
-									
-									<!-- Column 4 -->
-									<div class="col-md-3 col-sm-6">
-										<!-- ARTICLE -->
-										<article class="article">
-											<div class="article-img">
-												<a href="#">
-													<img src="/storage/img/img-md-4.jpg" alt="">
-												</a>
-												<ul class="article-info">
-													<li class="article-type"><i class="fa fa-file-text"></i></li>
-												</ul>
-											</div>
-											<div class="article-body">
-												<h4 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h4>
-												<ul class="article-meta">
-													<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-													<li><i class="fa fa-comments"></i> 33</li>
-												</ul>
-											</div>
-										</article>
-										<!-- /ARTICLE -->
-									</div>
-									<!-- Column 4 -->
-								</div>
-								<!-- /row -->
-								
-								<!-- row -->
-								<div class="row">
-									<!-- Column 1 -->
-									<div class="col-md-4 col-sm-6">
-										<!-- ARTICLE -->
-										<article class="article widget-article">
-											<div class="article-img">
-												<a href="#">
-													<img src="/storage/img/img-widget-1.jpg" alt="">
-												</a>
-											</div>
-											<div class="article-body">
-												<h4 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h4>
-												<ul class="article-meta">
-													<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-													<li><i class="fa fa-comments"></i> 33</li>
-												</ul>
-											</div>
-										</article>
-										<!-- /ARTICLE -->
-										
-										<!-- ARTICLE -->
-										<article class="article widget-article">
-											<div class="article-img">
-												<a href="#">
-													<img src="/storage/img/img-widget-2.jpg" alt="">
-												</a>
-											</div>
-											<div class="article-body">
-												<h4 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h4>
-												<ul class="article-meta">
-													<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-													<li><i class="fa fa-comments"></i> 33</li>
-												</ul>
-											</div>
-										</article>
-										<!-- /ARTICLE -->
-									</div>
-									<!-- /Column 1 -->
-									
-									<!-- Column 2 -->
-									<div class="col-md-4 col-sm-6">
-										<!-- ARTICLE -->
-										<article class="article widget-article">
-											<div class="article-img">
-												<a href="#">
-													<img src="/storage/img/img-widget-3.jpg" alt="">
-												</a>
-											</div>
-											<div class="article-body">
-												<h4 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h4>
-												<ul class="article-meta">
-													<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-													<li><i class="fa fa-comments"></i> 33</li>
-												</ul>
-											</div>
-										</article>
-										<!-- /ARTICLE -->
-										
-										<!-- ARTICLE -->
-										<article class="article widget-article">
-											<div class="article-img">
-												<a href="#">
-													<img src="/storage/img/img-widget-4.jpg" alt="">
-												</a>
-											</div>
-											<div class="article-body">
-												<h4 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h4>
-												<ul class="article-meta">
-													<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-													<li><i class="fa fa-comments"></i> 33</li>
-												</ul>
-											</div>
-										</article>
-										<!-- /ARTICLE -->
-									</div>
-									<!-- /Column 2 -->
-									
-									<!-- /Column 3 -->
-									<div class="col-md-4 hidden-sm">
-										<!-- ARTICLE -->
-										<article class="article widget-article">
-											<div class="article-img">
-												<a href="#">
-													<img src="/storage/img/img-widget-5.jpg" alt="">
-												</a>
-											</div>
-											<div class="article-body">
-												<h4 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h4>
-												<ul class="article-meta">
-													<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-													<li><i class="fa fa-comments"></i> 33</li>
-												</ul>
-											</div>
-										</article>
-										<!-- /ARTICLE -->
-										
-										<!-- ARTICLE -->
-										<article class="article widget-article">
-											<div class="article-img">
-												<a href="#">
-													<img src="/storage/img/img-widget-6.jpg" alt="">
-												</a>
-											</div>
-											<div class="article-body">
-												<h4 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h4>
-												<ul class="article-meta">
-													<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-													<li><i class="fa fa-comments"></i> 33</li>
-												</ul>
-											</div>
-										</article>
-										<!-- /ARTICLE -->
-									</div>
-									<!-- /Column 3 -->
+									@if(count($posts)>0)
+										<?php $i=1; ?>
+										@foreach($posts as $post)
+											@if($i<=4)
+												<div class="col-md-3 col-sm-6" style="height:325px">
+													<!-- ARTICLE -->
+													<article class="article">
+														<div class="article-img">
+															<a href="/posts/{{$post->id}}">
+															<img style="height:200px" src="/storage/cover_images/{{$post->cover_img}}" alt="">
+															</a>
+															<ul class="article-info">
+																<li class="article-type"><i class="fa fa-camera"></i></li>
+															</ul>
+														</div>
+														<div class="article-body">
+															<h4 class="article-title"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h4>
+															<ul class="article-meta">
+																<li><i class="fa fa-clock-o"></i> {{$post->created_at}}</li>
+															</ul>
+														</div>
+													</article>
+													<!-- /ARTICLE -->
+												</div>
+											@else
+												<div class="col-md-4 col-sm-6">
+													<!-- ARTICLE -->
+													<article class="article widget-article">
+														<div class="article-img">
+															<a href="/posts/{{$post->id}}">
+																<img style="height:80px" src="/storage/cover_images/{{$post->cover_img}}" alt="">
+															</a>
+														</div>
+														<div class="article-body">
+															<h4 class="article-title"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h4>
+															<ul class="article-meta">
+																<li><i class="fa fa-clock-o"></i> {{$post->created_at}} </li>
+															</ul>
+														</div>
+													</article>
+													<!-- /ARTICLE -->
+												</div>
+											@endif
+											<?php $i+=1; ?>
+										@endforeach
+									@endif
 								</div>
 								<!-- /row -->
 							</div>
 							<!-- /tab1 -->
+							<!-- tab2 -->
+							@foreach($category as $list)
+								<div id="{{$list->slug}}" class="tab-pane fade in">
+									<!-- row -->
+									<div class="row">
+										@if(count($posts)>0)
+											<?php $i=1; ?>
+											@foreach($posts as $post)
+												@if($post->category->slug===$list->slug)
+													@if($i<=4)
+														<div class="col-md-3 col-sm-6" style="height:325px">
+															<!-- ARTICLE -->
+															<article class="article">
+																<div class="article-img">
+																	<a href="/posts/{{$post->id}}">
+																	<img style="height:200px" src="/storage/cover_images/{{$post->cover_img}}" alt="">
+																	</a>
+																	<ul class="article-info">
+																		<li class="article-type"><i class="fa fa-camera"></i></li>
+																	</ul>
+																</div>
+																<div class="article-body">
+																	<h4 class="article-title"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h4>
+																	<ul class="article-meta">
+																		<li><i class="fa fa-clock-o"></i> {{$post->created_at}}</li>
+																	</ul>
+																</div>
+															</article>
+															<!-- /ARTICLE -->
+														</div>
+													@else
+														<div class="col-md-4 col-sm-6">
+															<!-- ARTICLE -->
+															<article class="article widget-article">
+																<div class="article-img">
+																	<a href="/posts/{{$post->id}}">
+																		<img style="height:80px" src="/storage/cover_images/{{$post->cover_img}}" alt="">
+																	</a>
+																</div>
+																<div class="article-body">
+																	<h4 class="article-title"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h4>
+																	<ul class="article-meta">
+																		<li><i class="fa fa-clock-o"></i> {{$post->created_at}} </li>
+																	</ul>
+																</div>
+															</article>
+															<!-- /ARTICLE -->
+														</div>
+													@endif
+													<?php $i+=1; ?>
+												@endif
+											@endforeach
+										@endif
+									</div>
+									<!-- /row -->
+								</div>
+							@endforeach
+							<!-- /tab2 -->
 						</div>
 						<!-- /tab content -->
 					</div>
@@ -808,7 +700,7 @@
 						</div>
 						<!-- /section title -->
 
-						@if(isset($posts))
+						@if(count($posts) > 0)
 						@foreach($posts as $post)
 							<!-- ARTICLE -->
 							<article class="article row-article">
@@ -819,13 +711,13 @@
 								</div>
 								<div class="article-body">
 									<ul class="article-info">
-										<li class="article-category"><a href="#">News</a></li>&nbsp;
+										<li class="article-category"><a href="#">{{$post->category->name}}</a></li>&nbsp;
 										<li class="article-meta"><i class="fa fa-clock-o"></i> {{date_format($post->created_at,"d M Y H:i")}}</li>
 									</ul>
 									<h3 class="article-title"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
 									<p>
 										@if (strlen($post->body) > 150)
-											{!!substr($post->body, 0, 150)!!}
+											<span>{!!substr($post->body, 0, 150)!!}</span>
 										@else
 											{!!$post->body!!}
 										@endif
