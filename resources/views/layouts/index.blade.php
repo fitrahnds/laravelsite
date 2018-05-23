@@ -35,7 +35,6 @@
 <body>
     <div id="app">
         @include('inc.header')
-        @include('inc.carousel')
         <div class="container">
             @include('inc.messages')
             @yield('content')

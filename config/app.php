@@ -165,6 +165,7 @@ return [
         Illuminate\View\ViewServiceProvider::class,
         Collective\Html\HtmlServiceProvider::class,
         Unisharp\Ckeditor\ServiceProvider::class,
+        CyrildeWit\PageViewCounter\PageViewCounterServiceProvider::class,
 
         /*
          * Package Service Providers...

@@ -102,6 +102,7 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
+        $post->increment('view_count');
         return view('posts.show')->with('post', $post);
     }
 

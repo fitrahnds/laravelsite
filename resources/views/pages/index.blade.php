@@ -40,9 +40,6 @@
 															<a href="/posts/{{$post->id}}">
 															<img style="height:200px" src="/storage/cover_images/{{$post->cover_img}}" alt="">
 															</a>
-															<ul class="article-info">
-																<li class="article-type"><i class="fa fa-camera"></i></li>
-															</ul>
 														</div>
 														<div class="article-body">
 															<h4 class="article-title"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h4>
@@ -96,9 +93,6 @@
 																	<a href="/posts/{{$post->id}}">
 																	<img style="height:200px" src="/storage/cover_images/{{$post->cover_img}}" alt="">
 																	</a>
-																	<ul class="article-info">
-																		<li class="article-type"><i class="fa fa-camera"></i></li>
-																	</ul>
 																</div>
 																<div class="article-body">
 																	<h4 class="article-title"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h4>
@@ -162,64 +156,28 @@
 							<div class="col-md-6 col-sm-6">
 								<!-- section title -->
 								<div class="section-title">
-									<h2 class="title">News</h2>
+									<h2 class="title">Rekomendasi</h2>
 								</div>
 								<!-- /section title -->
-								
-								<!-- ARTICLE -->
-								<article class="article">
-									<div class="article-img">
-										<a href="#">
-											<img src="/storage/img/img-sm-1.jpg" alt="">
-										</a>
-										<ul class="article-info">
-											<li class="article-type"><i class="fa fa-camera"></i></li>
-										</ul>
-									</div>
-									<div class="article-body">
-										<h3 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h3>
-										<ul class="article-meta">
-											<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-											<li><i class="fa fa-comments"></i> 33</li>
-										</ul>
-										<p>Populo tritani laboramus ex mei, no eum iuvaret ceteros euripidis, ne alia sadipscing mei. Te inciderint cotidieque pro, ei iisque docendi qui, ne accommodare theophrastus reprehendunt vel. Et commodo menandri eam.</p>
-									</div>
-								</article>
-								<!-- /ARTICLE -->
-								
-								<!-- ARTICLE -->
-								<article class="article widget-article">
-									<div class="article-img">
-										<a href="#">
-											<img src="/storage/img/img-widget-7.jpg" alt="">
-										</a>
-									</div>
-									<div class="article-body">
-										<h4 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h4>
-										<ul class="article-meta">
-											<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-											<li><i class="fa fa-comments"></i> 33</li>
-										</ul>
-									</div>
-								</article>
-								<!-- /ARTICLE -->
-								
-								<!-- ARTICLE -->
-								<article class="article widget-article">
-									<div class="article-img">
-										<a href="#">
-											<img src="/storage/img/img-widget-8.jpg" alt="">
-										</a>
-									</div>
-									<div class="article-body">
-										<h4 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h4>
-										<ul class="article-meta">
-											<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-											<li><i class="fa fa-comments"></i> 33</li>
-										</ul>
-									</div>
-								</article>
-								<!-- /ARTICLE -->
+								@if(count($posts)>0)
+									@foreach($posts as $post)
+										<!-- ARTICLE -->
+										<article class="article widget-article">
+											<div class="article-img">
+												<a href="/posts/{{$post->id}}">
+												<img src="/storage/cover_images/{{$post->cover_img}}" alt="">
+												</a>
+											</div>
+											<div class="article-body">
+												<h4 class="article-title"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h4>
+												<ul class="article-meta">
+													<li><i class="fa fa-clock-o"></i>{{$post->created_at}}</li>
+												</ul>
+											</div>
+										</article>
+										<!-- /ARTICLE -->
+									@endforeach
+								@endif
 							</div>
 							<!-- /Column 1 -->
 							
@@ -227,64 +185,29 @@
 							<div class="col-md-6 col-sm-6">
 								<!-- section title -->
 								<div class="section-title">
-									<h2 class="title">Sport</h2>
+									<h2 class="title">Headlines</h2>
 								</div>
 								<!-- /section title -->
-								
-								<!-- ARTICLE -->
-								<article class="article">
-									<div class="article-img">
-										<a href="#">
-											<img src="/storage/img/img-sm-2.jpg" alt="">
-										</a>
-										<ul class="article-info">
-											<li class="article-type"><i class="fa fa-file-text"></i></li>
-										</ul>
-									</div>
-									<div class="article-body">
-										<h3 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h3>
-										<ul class="article-meta">
-											<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-											<li><i class="fa fa-comments"></i> 33</li>
-										</ul>
-										<p>Populo tritani laboramus ex mei, no eum iuvaret ceteros euripidis, ne alia sadipscing mei. Te inciderint cotidieque pro, ei iisque docendi qui, ne accommodare theophrastus reprehendunt vel. Et commodo menandri eam.</p>
-									</div>
-								</article>
-								<!-- /ARTICLE -->
-								
-								<!-- ARTICLE -->
-								<article class="article widget-article">
-									<div class="article-img">
-										<a href="#">
-											<img src="/storage/img/img-widget-9.jpg" alt="">
-										</a>
-									</div>
-									<div class="article-body">
-										<h4 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h4>
-										<ul class="article-meta">
-											<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-											<li><i class="fa fa-comments"></i> 33</li>
-										</ul>
-									</div>
-								</article>
-								<!-- /ARTICLE -->
-								
-								<!-- ARTICLE -->
-								<article class="article widget-article">
-									<div class="article-img">
-										<a href="#">
-											<img src="/storage/img/img-widget-10.jpg" alt="">
-										</a>
-									</div>
-									<div class="article-body">
-										<h4 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h4>
-										<ul class="article-meta">
-											<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-											<li><i class="fa fa-comments"></i> 33</li>
-										</ul>
-									</div>
-								</article>
-								<!-- /ARTICLE -->
+
+								@if(count($posts)>0)
+									@foreach($posts as $post)
+										<!-- ARTICLE -->
+										<article class="article">
+											<div class="article-img">
+												<a href="/posts/{{$post->id}}">
+													<img src="/storage/cover_images/{{$post->cover_img}}" alt="">
+												</a>
+											</div>
+											<div class="article-body">
+												<h3 class="article-title"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
+												<ul class="article-meta">
+													<li><i class="fa fa-clock-o"></i> {{$post->created_at}}</li>
+												</ul>
+											</div>
+										</article>
+										<!-- /ARTICLE -->
+									@endforeach
+								@endif
 							</div>
 							<!-- /Column 2 -->
 						</div>
