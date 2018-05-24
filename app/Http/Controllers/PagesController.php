@@ -9,8 +9,15 @@ use App\Category;
 class PagesController extends Controller
 {
 	public function index(){
+		$articles = Post::orderBy('created_at', 'desc')->get();
+        $posts = $articles->sortByDesc(function ($article) {
+            return $article->getPageViews();
+        });
+        // echo "<pre>".print_r($articles, true)."</pre>";
+        // die();
 		$data = array(
-            'posts' => Post::orderBy('created_at', 'desc')->paginate(10),
+            //'posts' => Post::orderBy('created_at', 'desc')->paginate(10),
+            'posts' => $posts,
             'category' => Category::all()
         );
 		//echo "<pre>".print_r($posts, true)."</pre>";

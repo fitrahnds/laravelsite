@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Post;
 use App\Category;
+use Carbon\Carbon;
 //use DB;
 
 class PostsController extends Controller
@@ -29,10 +30,18 @@ class PostsController extends Controller
     {
 		//$posts = Post::all();
 		//$posts = DB::select('SELECT * FROM posts');
-		//$posts = Post::orderBy('created_at', 'desc')->take(1)->get();
-		
+        //$posts = Post::orderBy('created_at', 'desc')->take(1)->get();
+        $articles = Post::orderBy('created_at', 'desc')->get();
+        $posts = $articles->sortByDesc(function ($article) {
+            return $article->getPageViews();
+        });
+
+        // echo "<pre>".print_r($posts, true)."</pre>";
+        // die();
+        
         $data = array(
-            'posts' => Post::orderBy('created_at', 'desc')->paginate(10),
+            //'posts' => Post::orderBy('created_at', 'desc')->paginate(10),
+            'posts' => $posts,
             'category' => Category::all()
         );
         return view('posts.index')->with($data);
@@ -102,7 +111,9 @@ class PostsController extends Controller
     public function show($id)
     {
         $post = Post::find($id);
-        $post->increment('view_count');
+        $post->addPageViewThatExpiresAt(Carbon::now()->addHours(2));
+        //$post->addPageView();
+        //$post->increment('view_count');
         return view('posts.show')->with('post', $post);
     }
 
