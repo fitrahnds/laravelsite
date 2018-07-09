@@ -165,7 +165,7 @@
 										<article class="article widget-article">
 											<div class="article-img">
 												<a href="/posts/{{$post->id}}">
-												<img src="/storage/cover_images/{{$post->cover_img}}" alt="">
+												<img width="85px" height="85px" src="/storage/cover_images/{{$post->cover_img}}" alt="">
 												</a>
 											</div>
 											<div class="article-body">
