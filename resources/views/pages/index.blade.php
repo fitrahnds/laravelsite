@@ -38,7 +38,7 @@
 													<article class="article">
 														<div class="article-img">
 															<a href="/posts/{{$post->id}}">
-															<img style="height:200px" src="/storage/cover_images/{{$post->cover_img}}" alt="">
+															<img style="width:345px;height:200px" src="/storage/cover_images/345x200/{{$post->cover_img}}" alt="">
 															</a>
 														</div>
 														<div class="article-body">
@@ -56,7 +56,7 @@
 													<article class="article widget-article">
 														<div class="article-img">
 															<a href="/posts/{{$post->id}}">
-																<img style="height:80px" src="/storage/cover_images/{{$post->cover_img}}" alt="">
+																<img style="width:85px;height:85px" src="/storage/cover_images/85x85/{{$post->cover_img}}" alt="">
 															</a>
 														</div>
 														<div class="article-body">
@@ -91,7 +91,7 @@
 															<article class="article">
 																<div class="article-img">
 																	<a href="/posts/{{$post->id}}">
-																	<img style="height:200px" src="/storage/cover_images/{{$post->cover_img}}" alt="">
+																	<img style="width:345px;height:200px" src="/storage/cover_images/345x200/{{$post->cover_img}}" alt="">
 																	</a>
 																</div>
 																<div class="article-body">
@@ -109,7 +109,7 @@
 															<article class="article widget-article">
 																<div class="article-img">
 																	<a href="/posts/{{$post->id}}">
-																		<img style="height:80px" src="/storage/cover_images/{{$post->cover_img}}" alt="">
+																		<img style="width:85px;height:85px" src="/storage/cover_images/85x85/{{$post->cover_img}}" alt="">
 																	</a>
 																</div>
 																<div class="article-body">
@@ -165,7 +165,7 @@
 										<article class="article widget-article">
 											<div class="article-img">
 												<a href="/posts/{{$post->id}}">
-												<img width="85px" height="85px" src="/storage/cover_images/{{$post->cover_img}}" alt="">
+												<img width="85px" height="85px" src="/storage/cover_images/85x85/{{$post->cover_img}}" alt="">
 												</a>
 											</div>
 											<div class="article-body">
@@ -195,7 +195,7 @@
 										<article class="article">
 											<div class="article-img">
 												<a href="/posts/{{$post->id}}">
-													<img src="/storage/cover_images/{{$post->cover_img}}" alt="">
+													<img style="width:345px;height:200px" src="/storage/cover_images/345x200/{{$post->cover_img}}" alt="">
 												</a>
 											</div>
 											<div class="article-body">
@@ -212,71 +212,16 @@
 							<!-- /Column 2 -->
 						</div>
 						<!-- /row -->
-						
+												
 						<!-- row -->
 						<div class="row">
 							<!-- section title -->
 							<div class="col-md-12">
-								<div class="section-title">
-									<h2 class="title">News</h2>
+									<div class="section-title">
+										<h2 class="title">News</h2>
+									</div>
 								</div>
-							</div>
-							<!-- /section title -->
-							
-							<!-- Column 1 -->
-							<div class="col-md-6 col-sm-6">
-								<!-- ARTICLE -->
-								<article class="article">
-									<div class="article-img">
-										<a href="#">
-											<img src="/storage/img/img-sm-3.jpg" alt="">
-										</a>
-										<ul class="article-info">
-											<li class="article-type"><i class="fa fa-camera"></i></li>
-										</ul>
-									</div>
-									<div class="article-body">
-										<h3 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h3>
-										<ul class="article-meta">
-											<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-											<li><i class="fa fa-comments"></i> 33</li>
-										</ul>
-										<p>Populo tritani laboramus ex mei, no eum iuvaret ceteros euripidis, ne alia sadipscing mei. Te inciderint cotidieque pro, ei iisque docendi qui, ne accommodare theophrastus reprehendunt vel. Et commodo menandri eam.</p>
-									</div>
-								</article>
-								<!-- /ARTICLE -->
-							</div>
-							<!-- /Column 1 -->
-							
-							<!-- /Column 2 -->
-							<div class="col-md-6 col-sm-6">
-								<!-- ARTICLE -->
-								<article class="article">
-									<div class="article-img">
-										<a href="#">
-											<img src="/storage/img/img-sm-4.jpg" alt="">
-										</a>
-										<ul class="article-info">
-											<li class="article-type"><i class="fa fa-camera"></i></li>
-										</ul>
-									</div>
-									<div class="article-body">
-										<h3 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h3>
-										<ul class="article-meta">
-											<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-											<li><i class="fa fa-comments"></i> 33</li>
-										</ul>
-										<p>Populo tritani laboramus ex mei, no eum iuvaret ceteros euripidis, ne alia sadipscing mei. Te inciderint cotidieque pro, ei iisque docendi qui, ne accommodare theophrastus reprehendunt vel. Et commodo menandri eam.</p>
-									</div>
-								</article>
-								<!-- /ARTICLE -->
-							</div>
-							<!-- /Column 2 -->
-						</div>
-						<!-- /row -->
-						
-						<!-- row -->
-						<div class="row">
+								<!-- /section title -->
 							<!-- Column 1 -->
 							<div class="col-md-4 col-sm-4">
 								<!-- ARTICLE -->
@@ -629,7 +574,7 @@
 							<article class="article row-article">
 								<div class="article-img">
 									<a href="#">
-										<img src="/storage/cover_images/{{$post->cover_img}}" alt="{{$post->title}}">
+										<img style="width:250px;height:125px" src="/storage/cover_images/250x125/{{$post->cover_img}}" alt="{{$post->title}}">
 									</a>
 								</div>
 								<div class="article-body">
@@ -639,8 +584,8 @@
 									</ul>
 									<h3 class="article-title"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
 									<p>
-										@if (strlen($post->body) > 150)
-											<span>{!!substr($post->body, 0, 150)!!}</span>
+										@if (strlen($post->body) > 125)
+											<span>{!!substr($post->body, 0, 125)!!}</span>
 										@else
 											{!!$post->body!!}
 										@endif

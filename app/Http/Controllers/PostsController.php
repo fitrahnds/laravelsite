@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Post;
 use App\Category;
 use Carbon\Carbon;
+use Intervention\Image\ImageManagerStatic as Image;
 //use DB;
 
 class PostsController extends Controller
@@ -31,17 +32,17 @@ class PostsController extends Controller
 		//$posts = Post::all();
 		//$posts = DB::select('SELECT * FROM posts');
         //$posts = Post::orderBy('created_at', 'desc')->take(1)->get();
-        $articles = Post::orderBy('created_at', 'desc')->get();
-        $posts = $articles->sortByDesc(function ($article) {
-            return $article->getPageViews();
-        });
+        // $articles = Post::orderBy('created_at', 'desc')->get();
+        // $posts = $articles->sortByDesc(function ($article) {
+        //     return $article->getPageViews();
+        // });
 
         // echo "<pre>".print_r($posts, true)."</pre>";
         // die();
         
         $data = array(
-            //'posts' => Post::orderBy('created_at', 'desc')->paginate(10),
-            'posts' => $posts,
+            'posts' => Post::orderBy('created_at', 'desc')->paginate(10),
+            // 'posts' => $posts,
             'category' => Category::all()
         );
         return view('posts.index')->with($data);
@@ -77,16 +78,27 @@ class PostsController extends Controller
 
         //Handle File Upload
         if($request->hasFile('cover_img')){
+            $image = $request->file('cover_img');
             //Get filename with extension
-            $filenameWithExt = $request->file('cover_img')->getClientOriginalName();
+            $filenameWithExt = $image->getClientOriginalName();
             //Get just filename
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
             //Get just Ext
-            $extension = $request->file('cover_img')->getClientOriginalExtension();
+            $extension = $image->getClientOriginalExtension();
             //Filename to store
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
             //Upload Image
-            $path = $request->file('cover_img')->storeAs('public/cover_images', $fileNameToStore);
+            $path = $image->storeAs('public/cover_images/original/', $fileNameToStore);
+            //Resize Image
+            $image_resize = Image::make($image->getRealPath());          
+            $image_resize->resize(85, 85);
+            $image_resize->save(public_path('storage/cover_images/85x85/' .$fileNameToStore));
+            $image_resize = Image::make($image->getRealPath());          
+            $image_resize->resize(250, 125);
+            $image_resize->save(public_path('storage/cover_images/250x125/' .$fileNameToStore));
+            $image_resize = Image::make($image->getRealPath());          
+            $image_resize->resize(345, 200);
+            $image_resize->save(public_path('storage/cover_images/345x200/' .$fileNameToStore));
         } else {
             $fileNameToStore = "noimage.jpg";
         }
@@ -126,11 +138,16 @@ class PostsController extends Controller
     public function edit($id)
     {
         $post = Post::find($id);
+        $data = array(
+            'category' => Category::pluck('name','id'),
+            'post' => $post
+        );
+        
         if(auth()->user()->id !== $post->user_id)
         {
             return redirect('/posts')->with('error', 'Unauthorized Page');
         }
-        return view('posts.edit')->with('post', $post);
+        return view('posts.edit')->with($data);
     }
 
     /**
@@ -150,16 +167,27 @@ class PostsController extends Controller
         ]);
         
         if($request->hasFile('cover_img')){
+            $image = $request->file('cover_img');
             //Get filename with extension
-            $filenameWithExt = $request->file('cover_img')->getClientOriginalName();
+            $filenameWithExt = $image->getClientOriginalName();
             //Get just filename
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
             //Get just Ext
-            $extension = $request->file('cover_img')->getClientOriginalExtension();
+            $extension = $image->getClientOriginalExtension();
             //Filename to store
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
             //Upload Image
-            $path = $request->file('cover_img')->storeAs('public/cover_images', $fileNameToStore);
+            $path = $request->file('cover_img')->storeAs('public/cover_images/original', $fileNameToStore);
+            //Resize Image
+            $image_resize = Image::make($image->getRealPath());          
+            $image_resize->resize(85, 85);
+            $image_resize->save(public_path('storage/cover_images/85x85/' .$fileNameToStore));
+            $image_resize = Image::make($image->getRealPath());          
+            $image_resize->resize(250, 125);
+            $image_resize->save(public_path('storage/cover_images/250x125/' .$fileNameToStore));
+            $image_resize = Image::make($image->getRealPath());          
+            $image_resize->resize(345, 200);
+            $image_resize->save(public_path('storage/cover_images/345x200/' .$fileNameToStore));
         }
 
         $post = Post::find($id);
@@ -169,7 +197,10 @@ class PostsController extends Controller
         if($request->hasFile('cover_img')){
             if($post->cover_img !== "noimage.jpg"){
                 //Delete Image
-                Storage::delete('public/cover_images/'.$post->cover_img);
+                Storage::delete('public/cover_images/original/'.$post->cover_img);
+                Storage::delete('public/cover_images/85x85/'.$post->cover_img);
+                Storage::delete('public/cover_images/250x125/'.$post->cover_img);
+                Storage::delete('public/cover_images/345x200/'.$post->cover_img);
             }
             $post->cover_img = $fileNameToStore;
         }

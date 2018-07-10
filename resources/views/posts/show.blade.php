@@ -26,7 +26,7 @@
 							<a href="#" class="google"><i class="fa fa-google-plus"></i></a>
 						</div>
 						<div class="article-main-img">
-							<img src="/storage/cover_images/{{$post->cover_img}}" alt="{{$post->title}}">
+							<img src="/storage/cover_images/original/{{$post->cover_img}}" alt="{{$post->title}}">
 						</div>
 						<div class="article-body">
 							<ul class="article-info">
