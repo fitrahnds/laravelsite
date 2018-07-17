@@ -4,8 +4,14 @@
 	$(window).on('scroll', function() {
 		// Fixed Nav
 		var wScroll = $(this).scrollTop();
-		wScroll > $('header').height() ? $('#nav-header').addClass('fixed') : $('#nav-header').removeClass('fixed');
-		
+		if(wScroll > $('header').height()){
+			$('#nav-header').addClass('fixed');
+			$('.nav-logo').css({"display":"block","padding-top":"15px"});
+		}
+		else{
+			$('#nav-header').removeClass('fixed');
+			$('.nav-logo').css("display", "none");
+		}		
 		// Back to top appear
 		wScroll > 740 ? $('#back-to-top').addClass('active') : $('#back-to-top').removeClass('active')
 	});

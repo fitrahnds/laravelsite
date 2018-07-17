@@ -1,6 +1,33 @@
 @extends('layouts.index')
 
 @section('content')	
+		@if(count($posts)>0)
+		<!-- Owl Carousel 1 -->
+		<div id="owl-carousel-1" class="owl-carousel owl-theme center-owl-nav">
+			@foreach($posts as $post)
+			<!-- ARTICLE -->
+			<article class="article thumb-article">
+				<div class="article-img">
+					<img style="height:450px" src="/storage/cover_images/original/{{$post->cover_img}}" alt="">
+				</div>
+				<div class="article-body">
+					<ul class="article-info">
+						<li class="article-category"><a href="#">{{$post->category->name}}</a></li>
+					</ul>
+					<h2 class="article-title"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h2>
+					<ul class="article-meta">
+						<li><i class="fa fa-clock-o"></i> {{$post->created_at}}</li>
+					</ul>
+				</div>
+			</article>
+			<!-- /ARTICLE -->
+			@endforeach
+		</div>
+		@endif
+		<!-- /Owl Carousel 1 -->
+		<div class="header-ads">
+			<img class="center-block" src="/storage/img/ad-2.jpg" alt=""> 
+		</div>
 		<!-- SECTION -->
 		<div class="section">
 			<!-- CONTAINER -->
@@ -584,10 +611,10 @@
 									</ul>
 									<h3 class="article-title"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
 									<p>
-										@if (strlen($post->body) > 125)
-											<span>{!!substr($post->body, 0, 125)!!}</span>
+										@if (strlen($post->short_description) > 125)
+											<span>{!!substr($post->short_description, 0, 125)!!}</span>
 										@else
-											{!!$post->body!!}
+											{!!$post->short_description!!}
 										@endif
 									</p>
 								</div>

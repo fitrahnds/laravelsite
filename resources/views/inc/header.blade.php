@@ -6,9 +6,6 @@
             <div class="header-logo">
                 <a href="#" class="logo"><img src="/storage/img/logo.png" alt=""></a>
             </div>
-            <div class="header-ads">
-                <img class="center-block" src="/storage/img/ad-2.jpg" alt=""> 
-            </div>
         </div>
     </div>
     <!-- /Center Header -->
@@ -18,7 +15,7 @@
         <div class="container">
             <nav id="main-nav">
                 <div class="nav-logo">
-                    <a href="#" class="logo"><img src="/storage/img/logo-alt.png" alt=""></a>
+                    <a href="#" class="logo"><img height="100%"src="/storage/img/logo-alt.png" alt=""></a>
                 </div>
                 <ul class="main-nav nav navbar-nav">
                     <li class="active"><a href="#">Home</a></li>

@@ -8,6 +8,10 @@
 			{{Form::text('title', '', ['class'=>'form-control', 'placeholder'=>'Input Title', 'autocomplete'=>'off'])}}
 		</div>
 		<div class="form-group">
+			{{Form::label('short_desc', 'Short Description')}}
+			{{Form::text('short_desc', '', ['class'=>'form-control', 'placeholder'=>'Short Description', 'autocomplete'=>'off', 'maxlength'=>'120'])}}
+		</div>
+		<div class="form-group">
 			{{Form::label('body', 'Text Article')}}
 			{{Form::textarea('body', '', ['id'=>'article-ckeditor', 'class'=>'form-control', 'placeholder'=>'Input Content Article'])}}
 		</div>

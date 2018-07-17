@@ -70,7 +70,8 @@ class PostsController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-			'title' => 'required',
+            'title' => 'required',
+            'short_desc' => 'required',
             'body' => 'required',
             'category_id' => 'required',
             'cover_img' => 'image|nullable|max:1999'
@@ -105,6 +106,7 @@ class PostsController extends Controller
         
         $post = new Post;
         $post->title = $request->input('title');
+        $post->short_description = $request->input('short_desc');
         $post->body = $request->input('body');
         $post->category_id = $request->input('category_id');
         $post->user_id = auth()->user()->id;
@@ -161,6 +163,7 @@ class PostsController extends Controller
     {
         $this->validate($request, [
 			'title' => 'required',
+            'short_desc' => 'required',
             'body' => 'required',
             'category_id' => 'required',
             'cover_img' => 'image|nullable|max:1999'
@@ -192,6 +195,7 @@ class PostsController extends Controller
 
         $post = Post::find($id);
         $post->title = $request->input('title');
+        $post->short_description = $request->input('short_desc');
         $post->body = $request->input('body');
         $post->category_id = $request->input('category_id');
         if($request->hasFile('cover_img')){
