@@ -5,11 +5,15 @@
 	{!! Form::open(['action' => ['PostsController@update', $post->id], 'method'=>'POST', 'enctype' => 'multipart/form-data']) !!}
 		<div class="form-group">
 			{{Form::label('title', 'Title')}}
-			{{Form::text('title', $post->title, ['class'=>'form-control', 'placeholder'=>'Input Title', 'autocomplete'=>'off'])}}
+			{{Form::text('title', $post->title, ['class'=>'form-control', 'placeholder'=>'Input Title', 'autocomplete'=>'off', 'maxlength'=>'75', 'oninput'=>'document.getElementById("url").value = convertToSlug(document.getElementById("title").value);'])}}
+		</div>
+		<div class="form-group">
+			{{Form::label('url', 'URL Slug')}}
+			{{Form::text('url', $post->url_slug, ['class'=>'form-control', 'placeholder'=>'URL Slug', 'autocomplete'=>'off', 'readonly'=>'true'])}}
 		</div>
 		<div class="form-group">
 			{{Form::label('short_desc', 'Short Description')}}
-			{{Form::text('short_desc', $post->short_desc, ['class'=>'form-control', 'placeholder'=>'Short Description', 'autocomplete'=>'off', 'maxlength'=>'120'])}}
+			{{Form::text('short_desc', $post->short_description, ['class'=>'form-control', 'placeholder'=>'Short Description', 'autocomplete'=>'off', 'maxlength'=>'120'])}}
 		</div>
 		<div class="form-group">
 			{{Form::label('body', 'Text Article')}}

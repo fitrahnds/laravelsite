@@ -14,6 +14,8 @@
 Route::get('/', 'PagesController@index');
 Route::get('/about', 'PagesController@about');
 Route::get('/services', 'PagesController@services');
+Route::get('/article/{id}/{url_slug?}', 'PostsController@show');
+Route::get('/article/{id}/{url_slug}/edit', 'PostsController@edit');
 
 Route::resource('/posts', 'PostsController');
 

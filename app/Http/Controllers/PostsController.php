@@ -71,6 +71,7 @@ class PostsController extends Controller
     {
         $this->validate($request, [
             'title' => 'required',
+            'url' => 'required',
             'short_desc' => 'required',
             'body' => 'required',
             'category_id' => 'required',
@@ -106,6 +107,7 @@ class PostsController extends Controller
         
         $post = new Post;
         $post->title = $request->input('title');
+        $post->url_slug = $request->input('url');
         $post->short_description = $request->input('short_desc');
         $post->body = $request->input('body');
         $post->category_id = $request->input('category_id');
@@ -113,7 +115,7 @@ class PostsController extends Controller
         $post->cover_img = $fileNameToStore;
         $post->save();
         
-        return redirect('/posts')->with('success', 'Post Created');
+        return redirect('/article')->with('success', 'Post Created');
     }
 
     /**
@@ -122,13 +124,21 @@ class PostsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, $url_slug = null)
     {
-        $post = Post::find($id);
-        $post->addPageViewThatExpiresAt(Carbon::now()->addHours(2));
+        if($url_slug){
+            $post = Post::where('id', $id)->where('url_slug', $url_slug)->first();
+        }else{
+            $post = Post::find($id);
+        }
+        if($post)
+        {
+            $post->addPageViewThatExpiresAt(Carbon::now()->addHours(2));
+            return view('posts.show')->with('post', $post);
+        }
+        return abort(404);
         //$post->addPageView();
         //$post->increment('view_count');
-        return view('posts.show')->with('post', $post);
     }
 
     /**
@@ -147,7 +157,7 @@ class PostsController extends Controller
         
         if(auth()->user()->id !== $post->user_id)
         {
-            return redirect('/posts')->with('error', 'Unauthorized Page');
+            return redirect('/article')->with('error', 'Unauthorized Page');
         }
         return view('posts.edit')->with($data);
     }
@@ -162,7 +172,8 @@ class PostsController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-			'title' => 'required',
+            'title' => 'required',
+            'url' => 'required',
             'short_desc' => 'required',
             'body' => 'required',
             'category_id' => 'required',
@@ -195,6 +206,7 @@ class PostsController extends Controller
 
         $post = Post::find($id);
         $post->title = $request->input('title');
+        $post->url_slug = $request->input('url');
         $post->short_description = $request->input('short_desc');
         $post->body = $request->input('body');
         $post->category_id = $request->input('category_id');
@@ -210,7 +222,7 @@ class PostsController extends Controller
         }
         $post->save();
         
-        return redirect('/posts/'.$id)->with('success', 'Post Updated');
+        return redirect('/article/'.$id)->with('success', 'Post Updated');
     }
 
     /**
@@ -223,7 +235,7 @@ class PostsController extends Controller
     {
         $post = Post::find($id);
         if(auth()->user()->id !== $post->user_id){
-            return redirect('/posts')->with('error', 'Unauthorized Page');
+            return redirect('/article')->with('error', 'Unauthorized Page');
         }
         if($post->cover_img !== "noimage.jpg"){
             //Delete Image
@@ -231,6 +243,6 @@ class PostsController extends Controller
         }
         $post->delete();
         
-        return redirect('/posts/')->with('success', 'Post Deleted');
+        return redirect('/article/')->with('success', 'Post Deleted');
     }
 }

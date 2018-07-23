@@ -33,18 +33,22 @@
 	<![endif]-->
 </head>
 <body>
-    <div id="app">
-        @include('inc.header')
-        <div class="container">
-            @include('inc.messages')
-            @yield('content')
-        </div>
-        @include('inc.footer')
-    </div>
-
+    @include('inc.header')
+       <div class="container">
+           @include('inc.messages')
+           @yield('content')
+       </div>
+    @include('inc.footer')
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-	<script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
+    <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/id_ID/sdk.js#xfbml=1&version=v3.0&appId=1933483690282855&autoLogAppEvents=1';
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
 </body>
 </html>

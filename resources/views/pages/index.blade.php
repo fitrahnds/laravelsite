@@ -14,7 +14,7 @@
 					<ul class="article-info">
 						<li class="article-category"><a href="#">{{$post->category->name}}</a></li>
 					</ul>
-					<h2 class="article-title"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h2>
+					<h2 class="article-title"><a href="/article/{{$post->id}}/{{$post->url_slug}}">{{$post->title}}</a></h2>
 					<ul class="article-meta">
 						<li><i class="fa fa-clock-o"></i> {{$post->created_at}}</li>
 					</ul>
@@ -64,12 +64,12 @@
 													<!-- ARTICLE -->
 													<article class="article">
 														<div class="article-img">
-															<a href="/posts/{{$post->id}}">
+															<a href="/article/{{$post->id}}/{{$post->url_slug}}">
 															<img style="width:345px;height:200px" src="/storage/cover_images/345x200/{{$post->cover_img}}" alt="">
 															</a>
 														</div>
 														<div class="article-body">
-															<h4 class="article-title"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h4>
+															<h4 class="article-title"><a href="/article/{{$post->id}}/{{$post->url_slug}}">{{$post->title}}</a></h4>
 															<ul class="article-meta">
 																<li><i class="fa fa-clock-o"></i> {{$post->created_at}}</li>
 															</ul>
@@ -82,12 +82,12 @@
 													<!-- ARTICLE -->
 													<article class="article widget-article">
 														<div class="article-img">
-															<a href="/posts/{{$post->id}}">
+															<a href="/article/{{$post->id}}/{{$post->url_slug}}">
 																<img style="width:85px;height:85px" src="/storage/cover_images/85x85/{{$post->cover_img}}" alt="">
 															</a>
 														</div>
 														<div class="article-body">
-															<h4 class="article-title"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h4>
+															<h4 class="article-title"><a href="/article/{{$post->id}}/{{$post->url_slug}}">{{$post->title}}</a></h4>
 															<ul class="article-meta">
 																<li><i class="fa fa-clock-o"></i> {{$post->created_at}} </li>
 															</ul>
@@ -117,12 +117,12 @@
 															<!-- ARTICLE -->
 															<article class="article">
 																<div class="article-img">
-																	<a href="/posts/{{$post->id}}">
+																	<a href="/article/{{$post->id}}/{{$post->url_slug}}">
 																	<img style="width:345px;height:200px" src="/storage/cover_images/345x200/{{$post->cover_img}}" alt="">
 																	</a>
 																</div>
 																<div class="article-body">
-																	<h4 class="article-title"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h4>
+																	<h4 class="article-title"><a href="/article/{{$post->id}}/{{$post->url_slug}}">{{$post->title}}</a></h4>
 																	<ul class="article-meta">
 																		<li><i class="fa fa-clock-o"></i> {{$post->created_at}}</li>
 																	</ul>
@@ -135,12 +135,12 @@
 															<!-- ARTICLE -->
 															<article class="article widget-article">
 																<div class="article-img">
-																	<a href="/posts/{{$post->id}}">
+																	<a href="/article/{{$post->id}}/{{$post->url_slug}}">
 																		<img style="width:85px;height:85px" src="/storage/cover_images/85x85/{{$post->cover_img}}" alt="">
 																	</a>
 																</div>
 																<div class="article-body">
-																	<h4 class="article-title"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h4>
+																	<h4 class="article-title"><a href="/article/{{$post->id}}/{{$post->url_slug}}">{{$post->title}}</a></h4>
 																	<ul class="article-meta">
 																		<li><i class="fa fa-clock-o"></i> {{$post->created_at}} </li>
 																	</ul>
@@ -191,12 +191,12 @@
 										<!-- ARTICLE -->
 										<article class="article widget-article">
 											<div class="article-img">
-												<a href="/posts/{{$post->id}}">
+												<a href="/article/{{$post->id}}/{{$post->url_slug}}">
 												<img width="85px" height="85px" src="/storage/cover_images/85x85/{{$post->cover_img}}" alt="">
 												</a>
 											</div>
 											<div class="article-body">
-												<h4 class="article-title"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h4>
+												<h4 class="article-title"><a href="/article/{{$post->id}}/{{$post->url_slug}}">{{$post->title}}</a></h4>
 												<ul class="article-meta">
 													<li><i class="fa fa-clock-o"></i>{{$post->created_at}}</li>
 												</ul>
@@ -221,12 +221,12 @@
 										<!-- ARTICLE -->
 										<article class="article">
 											<div class="article-img">
-												<a href="/posts/{{$post->id}}">
+												<a href="/article/{{$post->id}}/{{$post->url_slug}}">
 													<img style="width:345px;height:200px" src="/storage/cover_images/345x200/{{$post->cover_img}}" alt="">
 												</a>
 											</div>
 											<div class="article-body">
-												<h3 class="article-title"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
+												<h3 class="article-title"><a href="/article/{{$post->id}}/{{$post->url_slug}}">{{$post->title}}</a></h3>
 												<ul class="article-meta">
 													<li><i class="fa fa-clock-o"></i> {{$post->created_at}}</li>
 												</ul>
@@ -609,7 +609,7 @@
 										<li class="article-category"><a href="#">{{$post->category->name}}</a></li>&nbsp;
 										<li class="article-meta"><i class="fa fa-clock-o"></i> {{date_format($post->created_at,"d M Y H:i")}}</li>
 									</ul>
-									<h3 class="article-title"><a href="/posts/{{$post->id}}">{{$post->title}}</a></h3>
+									<h3 class="article-title"><a href="/article/{{$post->id}}/{{$post->url_slug}}">{{$post->title}}</a></h3>
 									<p>
 										@if (strlen($post->short_description) > 125)
 											<span>{!!substr($post->short_description, 0, 125)!!}</span>

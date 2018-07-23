@@ -59,95 +59,16 @@
 						<div class="section-title">
 							<h2 class="title">Comments</h2>
 						</div>
+						<div class="fb-comments" data-width="100%" data-href="{{Request::url()}}" data-numposts="5" data-order-by="reverse_time"></div>
 							
-						<!-- comment -->
-						<div class="media">
-							<div class="media-left">
-								<img src="/storage/img/av-1.jpg" alt="">
-							</div>
-							<div class="media-body">
-								<div class="media-heading">
-									<h5>John Doe <span class="reply-time">April 04, 2017 At 9:30 AM</span></h5>
-								</div>
-								<p>Eu usu aliquip vivendo. Impedit suscipit invidunt te vel, sale periculis id mea. Ne nec atqui paulo,</p>				
-								<a href="#" class="reply-btn">Reply</a>
-							</div>
-							
-							<!-- comment -->
-							<div class="media">
-								<div class="media-left">
-									<img src="/storage/img/av-2.jpg" alt="">
-								</div>
-								<div class="media-body">
-									<div class="/storage/media-heading">
-										<h5>John Doe <span class="reply-time">April 04, 2017 At 9:30 AM</span></h5>
-									</div>
-									<p>Eu usu aliquip vivendo. Impedit suscipit invidunt te vel, sale periculis id mea. Ne nec atqui paulo,</p>				
-									<a href="#" class="reply-btn">Reply</a>
-								</div>
-								
-								<!-- comment -->
-								<div class="media">
-									<div class="media-left">
-										<img src="/storage/img/av-1.jpg" alt="">
-									</div>
-									<div class="media-body">
-										<div class="media-heading">
-											<h5>John Doe <span class="reply-time">April 04, 2017 At 9:30 AM</span></h5>
-										</div>
-										<p>Eu usu aliquip vivendo. Impedit suscipit invidunt te vel, sale periculis id mea. Ne nec atqui paulo,</p>				
-										<a href="#" class="reply-btn">Reply</a>
-									</div>
-								</div>
-								<!-- /comment -->
-							</div>
-							<!-- /comment -->
-						</div>
-						<!-- /comment -->
-						
-						<!-- comment -->
-						<div class="media">
-							<div class="media-left">
-								<img src="/storage/img/av-2.jpg" alt="">
-							</div>
-							<div class="media-body">
-								<div class="media-heading">
-									<h5>John Doe <span class="reply-time">April 04, 2017 At 9:30 AM</span></h5>
-								</div>
-								<p>Eu usu aliquip vivendo. Impedit suscipit invidunt te vel, sale periculis id mea. Ne nec atqui paulo,</p>				
-								<a href="#" class="reply-btn">Reply</a>
-							</div>
-						</div>
-						<!-- /comment -->
+						<div id="fb-root"></div>
 					</div>
 					<!-- /article comments -->
-					
-					<!-- reply form -->
-					<div class="article-reply-form">
-						<div class="section-title">
-							<h2 class="title">Leave a reply</h2>
-						</div>
-							
-						<form>
-							<input class="input" placeholder="Name" type="text">
-							<input class="input" placeholder="Email" type="email">
-							<input class="input" placeholder="Website" type="url">
-							<textarea class="input" placeholder="Message"></textarea>
-							<button class="input-btn">Send Message</button>
-						</form>
-					</div>
-					<!-- /reply form -->
 				</div>
 				<!-- /Main Column -->
 				
 				<!-- Aside Column -->
-				<div class="col-md-4">
-					<!-- Ad widget -->
-					<div class="widget center-block hidden-xs">
-						<img class="center-block" src="/storage/img/ad-1.jpg" alt=""> 
-					</div>
-					<!-- /Ad widget -->
-					
+				<div class="col-md-4">					
 					<!-- social widget -->
 					<div class="widget social-widget">
 						<div class="widget-title">
@@ -464,7 +385,7 @@
 
 	@if(!Auth::guest() && Auth::user()->id === $post->user_id)
 		<hr>
-		<a href="/posts/{{$post->id}}/edit" class="btn btn-primary">Edit</a>
+		<a href="/article/{{$post->id}}/{{$post->url_slug}}/edit" class="btn btn-primary">Edit</a>
 		{!! Form::open(['action'=>['PostsController@destroy', $post->id], 'method'=>'POST', 'class'=>'pull-right']) !!}
 			{{Form::hidden('_method', 'DELETE')}}
 			{{Form::submit('Delete', ['class'=>'btn btn-danger'])}}

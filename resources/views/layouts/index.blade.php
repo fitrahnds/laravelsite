@@ -33,18 +33,15 @@
 	<![endif]-->
 </head>
 <body>
-    <div id="app">
-        @include('inc.header')
+    @include('inc.header')
         <div class="container">
             @include('inc.messages')
             @yield('content')
         </div>
-        @include('inc.footer')
-    </div>
-
+    @include('inc.footer')
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}"></script>
     <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-	<script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/main.js') }}"></script>
 </body>
 </html>
