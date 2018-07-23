@@ -32,10 +32,9 @@ Table OF Contents
 	typography
 \*----------------------------*/
 body {
-	font-family: 'Lato', sans-serif;
+	font : 300 14px/1.71em AcuminPro,arial,helvetica,sans-serif;
 	color:#2C2C2C;
-	font-size:15px;
-	font-weight:300;
+	font-size:14px;
 }
 
 h1,h2,h3,h4,h5,h6 {

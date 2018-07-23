@@ -133,7 +133,7 @@ class PostsController extends Controller
         }
         if($post)
         {
-            $post->addPageViewThatExpiresAt(Carbon::now()->addHours(2));
+            $post->addPageView();
             return view('posts.show')->with('post', $post);
         }
         return abort(404);

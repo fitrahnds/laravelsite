@@ -21,9 +21,9 @@
 					<!-- ARTICLE POST -->
 					<article class="article article-post">
 						<div class="article-share">
-							<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-							<a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-							<a href="#" class="google"><i class="fa fa-google-plus"></i></a>
+							<a onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" href="https://www.facebook.com/sharer/sharer.php?u={{Request::url()}}" class="facebook"><i class="fa fa-facebook"></i></a>
+							<a onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" href="https://twitter.com/intent/tweet?text={{Request::url()}}" class="twitter"><i class="fa fa-twitter"></i></a>
+							<a onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" href="https://plus.google.com/share?url={{Request::url()}}" class="google"><i class="fa fa-google-plus"></i></a>
 						</div>
 						<div class="article-main-img">
 							<img src="/storage/cover_images/original/{{$post->cover_img}}" alt="{{$post->title}}">

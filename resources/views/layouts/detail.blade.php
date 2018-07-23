@@ -4,7 +4,11 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <meta property="og:url" content="{{Request::url()}}" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="{{$post->title}}" />
+    <meta property="og:description" content="{{$post->short_description}}" />
+    <meta property="og:image" content="{{URL::to('/')}}/storage/cover_images/original/{{$post->cover_img}}" />
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
