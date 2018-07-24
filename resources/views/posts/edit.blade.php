@@ -20,6 +20,10 @@
 			{{Form::textarea('body', $post->body, ['id'=>'article-ckeditor', 'class'=>'form-control', 'placeholder'=>'Input Content Article'])}}
 		</div>
 		<div class="form-group">
+			{{Form::label('tags', 'Tags')}}
+			{{Form::text('tags', $post->tags, ['class'=>'form-control', 'placeholder'=>'Add Tags','data-role'=>'tagsinput'])}}
+		</div>
+		<div class="form-group">
 			{{Form::label('Category')}}
 			{{Form::select('category_id', $category, ['class'=>'form-control'])}}
 		</div>

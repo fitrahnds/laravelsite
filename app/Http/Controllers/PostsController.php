@@ -74,6 +74,7 @@ class PostsController extends Controller
             'url' => 'required',
             'short_desc' => 'required',
             'body' => 'required',
+            'tags' => 'nullable',
             'category_id' => 'required',
             'cover_img' => 'image|nullable|max:1999'
         ]);
@@ -110,6 +111,7 @@ class PostsController extends Controller
         $post->url_slug = $request->input('url');
         $post->short_description = $request->input('short_desc');
         $post->body = $request->input('body');
+        $post->tags = $request->input('tags');
         $post->category_id = $request->input('category_id');
         $post->user_id = auth()->user()->id;
         $post->cover_img = $fileNameToStore;
@@ -130,6 +132,7 @@ class PostsController extends Controller
             $post = Post::where('id', $id)->where('url_slug', $url_slug)->first();
         }else{
             $post = Post::find($id);
+            return redirect('/article/'.$post->id.'/'.$post->url_slug);
         }
         if($post)
         {
@@ -176,6 +179,7 @@ class PostsController extends Controller
             'url' => 'required',
             'short_desc' => 'required',
             'body' => 'required',
+            'tags' => 'nullable',
             'category_id' => 'required',
             'cover_img' => 'image|nullable|max:1999'
         ]);
@@ -209,6 +213,7 @@ class PostsController extends Controller
         $post->url_slug = $request->input('url');
         $post->short_description = $request->input('short_desc');
         $post->body = $request->input('body');
+        $post->tags = $request->input('tags');
         $post->category_id = $request->input('category_id');
         if($request->hasFile('cover_img')){
             if($post->cover_img !== "noimage.jpg"){

@@ -42,16 +42,18 @@
 					<!-- /ARTICLE POST -->
 					
 					<!-- widget tags -->
+					@if($post->tags)
 					<div class="widget-tags">
 						<ul>
-							<li><a href="#">News</a></li>
-							<li><a href="#">Sport</a></li>
-							<li><a href="#">Lifestyle</a></li>
-							<li><a href="#">Fashion</a></li>
-							<li><a href="#">Music</a></li>
-							<li><a href="#">Business</a></li>
+							<?php 
+								$tags = explode(",",$post->tags);
+							?>
+							@foreach($tags as $tag)
+								<li><a href="#">{{$tag}}</a></li>
+							@endforeach
 						</ul>
 					</div>
+					@endif
 					<!-- /widget tags -->
 					
 					<!-- article comments -->
@@ -60,7 +62,6 @@
 							<h2 class="title">Comments</h2>
 						</div>
 						<div class="fb-comments" data-width="100%" data-href="{{Request::url()}}" data-numposts="5" data-order-by="reverse_time"></div>
-							
 						<div id="fb-root"></div>
 					</div>
 					<!-- /article comments -->
