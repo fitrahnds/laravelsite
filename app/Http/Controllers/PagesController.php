@@ -21,11 +21,11 @@ class PagesController extends Controller
             'category' => Category::all()
         );
 		//echo "<pre>".print_r($posts, true)."</pre>";
-        return view('pages.index')->with($data);
+        return view('web.pages.index')->with($data);
 	}
 	public function about(){
 		$title = "About";
-		return view('pages.about')->with('title', $title);
+		return view('web.pages.about')->with('title', $title);
 	}
 	public function services(){
 		//$title = "Services";
@@ -33,6 +33,6 @@ class PagesController extends Controller
 				'title' => 'Sevices',
 				'services' => ['Programming','SEO','Web Design']
 		);
-		return view('pages.services')->with($data);
+		return view('web.pages.services')->with($data);
 	}
 }

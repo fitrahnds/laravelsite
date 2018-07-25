@@ -45,7 +45,7 @@ class PostsController extends Controller
             // 'posts' => $posts,
             'category' => Category::all()
         );
-        return view('posts.index')->with($data);
+        return view('web.posts.index')->with($data);
     }
 
     /**
@@ -58,7 +58,7 @@ class PostsController extends Controller
         $category = Category::pluck('name','id');
         // echo "<pre>".print_r($category, true)."</pre>";
         // die();
-        return view('posts.create')->with('category', $category);
+        return view('web.posts.create')->with('category', $category);
     }
 
     /**
@@ -137,7 +137,7 @@ class PostsController extends Controller
         if($post)
         {
             $post->addPageView();
-            return view('posts.show')->with('post', $post);
+            return view('web.posts.show')->with('post', $post);
         }
         return abort(404);
         //$post->addPageView();
@@ -162,7 +162,7 @@ class PostsController extends Controller
         {
             return redirect('/article')->with('error', 'Unauthorized Page');
         }
-        return view('posts.edit')->with($data);
+        return view('web.posts.edit')->with($data);
     }
 
     /**
