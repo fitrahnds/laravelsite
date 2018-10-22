@@ -1,10 +1,11 @@
 @extends('web.layouts.detail')
 
 @section('content')
+	<div class="header-ads">
+		<img class="center-block" src="/storage/img/ad-2.jpg" alt=""> 
+	</div>	
 	<!-- SECTION -->
 	<div class="section">
-		<!-- CONTAINER -->
-		<div class="container">
 			<!-- ROW -->
 			<div class="row">
 				<!-- Main Column -->
@@ -254,21 +255,11 @@
 				<!-- /Aside Column -->
 			</div>
 			<!-- /ROW -->
-		</div>
-		<!-- /CONTAINER -->
 	</div>
 	<!-- /SECTION -->
 	
-	<!-- AD SECTION -->
-	<div class="visible-lg visible-md">
-		<img class="center-block" src="/storage/img/ad-3.jpg" alt="">
-	</div>
-	<!-- /AD SECTION -->
-	
 	<!-- SECTION -->
 	<div class="section">
-		<!-- CONTAINER -->
-		<div class="container">
 			<!-- ROW -->
 			<div class="row">
 				<!-- Main Column -->
@@ -379,8 +370,6 @@
 				<!-- /Main Column -->
 			</div>
 			<!-- /ROW -->
-		</div>
-		<!-- /CONTAINER -->
 	</div>
 	<!-- /SECTION -->
 

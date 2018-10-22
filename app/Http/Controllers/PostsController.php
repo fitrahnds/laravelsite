@@ -58,7 +58,7 @@ class PostsController extends Controller
         $category = Category::pluck('name','id');
         // echo "<pre>".print_r($category, true)."</pre>";
         // die();
-        return view('web.posts.create')->with('category', $category);
+        return view('backend.pages.create')->with('category', $category);
     }
 
     /**
@@ -162,7 +162,7 @@ class PostsController extends Controller
         {
             return redirect('/article')->with('error', 'Unauthorized Page');
         }
-        return view('web.posts.edit')->with($data);
+        return view('backend.pages.edit')->with($data);
     }
 
     /**

@@ -1,6 +1,9 @@
 @extends('web.layouts.index')
 
 @section('content')	
+	<div class="header-ads">
+		<img class="center-block" src="/storage/img/ad-2.jpg" alt=""> 
+	</div>	
 		@if(count($posts)>0)
 		<!-- Owl Carousel 1 -->
 		<div id="owl-carousel-1" class="owl-carousel owl-theme center-owl-nav">
@@ -8,7 +11,7 @@
 			<!-- ARTICLE -->
 			<article class="article thumb-article">
 				<div class="article-img">
-					<img style="height:450px" src="/storage/cover_images/original/{{$post->cover_img}}" alt="">
+					<img style="height:375px" src="/storage/cover_images/original/{{$post->cover_img}}" alt="">
 				</div>
 				<div class="article-body">
 					<ul class="article-info">
@@ -24,14 +27,9 @@
 			@endforeach
 		</div>
 		@endif
-		<!-- /Owl Carousel 1 -->
-		<div class="header-ads">
-			<img class="center-block" src="/storage/img/ad-2.jpg" alt=""> 
-		</div>		
+		<!-- /Owl Carousel 1 -->	
 		<!-- SECTION -->
 		<div class="section">
-			<!-- CONTAINER -->
-			<div class="container">
 				<!-- ROW -->
 				<div class="row">
 					<!-- Main Column -->
@@ -48,7 +46,7 @@
 							<article class="article row-article">
 								<div class="article-img">
 									<a href="#">
-										<img style="width:250px;height:125px" src="/storage/cover_images/250x125/{{$post->cover_img}}" alt="{{$post->title}}">
+										<img style="width:200px;height:100px" src="/storage/cover_images/250x125/{{$post->cover_img}}" alt="{{$post->title}}">
 									</a>
 								</div>
 								<div class="article-body">
@@ -57,13 +55,13 @@
 										<li class="article-meta"><i class="fa fa-clock-o"></i> {{date_format($post->created_at,"d M Y H:i")}}</li>
 									</ul>
 									<h3 class="article-title"><a href="/article/{{$post->id}}/{{$post->url_slug}}">{{$post->title}}</a></h3>
-									<p>
+									<div class="article-shortdesc">
 										@if (strlen($post->short_description) > 125)
 											<span>{!!substr($post->short_description, 0, 125)!!}</span>
 										@else
 											{!!$post->short_description!!}
 										@endif
-									</p>
+									</div>
 								</div>
 							</article>
 							<!-- /ARTICLE -->
@@ -174,8 +172,6 @@
 					<!-- /Aside Column -->
 				</div>
 				<!-- /ROW -->
-			</div>
-			<!-- /CONTAINER -->
 		</div>
 		<!-- /SECTION -->
 @endsection

@@ -2016,7 +2016,7 @@ pre code {
   clear: both;
 }
 
-@media (min-width: 768px) {
+/* @media (min-width: 768px) {
   .container {
     width: 750px;
   }
@@ -2032,6 +2032,10 @@ pre code {
   .container {
     width: 1170px;
   }
+} */
+
+.container {
+  width: 1024px;
 }
 
 .container-fluid {

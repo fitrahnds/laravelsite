@@ -12,9 +12,8 @@ class PagesController extends Controller
 		$articles = Post::orderBy('created_at', 'desc')->get();
         $posts = $articles->sortByDesc(function ($article) {
             return $article->getPageViews();
-        });
-        // echo "<pre>".print_r($articles, true)."</pre>";
-        // die();
+		});
+		
 		$data = array(
             //'posts' => Post::orderBy('created_at', 'desc')->paginate(10),
             'posts' => $posts,

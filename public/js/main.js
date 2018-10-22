@@ -6,7 +6,7 @@
 		var wScroll = $(this).scrollTop();
 		if(wScroll > $('header').height()){
 			$('#nav-header').addClass('fixed');
-			$('.nav-logo').css({"display":"block","padding-top":"15px"});
+			$('.nav-logo').css({"display":"block","padding":"5px"});
 		}
 		else{
 			$('#nav-header').removeClass('fixed');
