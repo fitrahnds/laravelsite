@@ -1,4 +1,4 @@
-@extends('web.layouts.index')
+@extends('www.layouts.index')
 
 @section('content')	
 	<div class="header-ads">
@@ -36,7 +36,7 @@
 					<div class="col-md-8">
 						<!-- section title -->
 						<div class="section-title">
-							<h2 class="title">Popular Posts</h2>
+							<h2 class="title">Rekomendasi</h2>
 						</div>
 						<!-- /section title -->
 
@@ -46,13 +46,13 @@
 							<article class="article row-article">
 								<div class="article-img">
 									<a href="#">
-										<img style="width:200px;height:100px" src="/storage/cover_images/250x125/{{$post->cover_img}}" alt="{{$post->title}}">
+										<img style="width:200px;height:100px" src="/storage/cover_images/200x100/{{$post->cover_img}}" alt="{{$post->title}}">
 									</a>
 								</div>
 								<div class="article-body">
 									<ul class="article-info">
 										<li class="article-category"><a href="#">{{$post->category->name}}</a></li>&nbsp;
-										<li class="article-meta"><i class="fa fa-clock-o"></i> {{date_format($post->created_at,"d M Y H:i")}}</li>
+										<li class="article-meta"><i class="fa fa-clock-o"></i> {{getTimeDuration(date_format($post->created_at,"d M Y H:i:s"))}}</li>
 									</ul>
 									<h3 class="article-title"><a href="/article/{{$post->id}}/{{$post->url_slug}}">{{$post->title}}</a></h3>
 									<div class="article-shortdesc">
@@ -81,65 +81,71 @@
 							
 							<!-- owl carousel 4 -->
 							<div id="owl-carousel-4" class="owl-carousel owl-theme">
+								@if(count($posts) > 0)
+								@foreach($posts as $post)
 								<!-- ARTICLE -->
 								<article class="article thumb-article">
 									<div class="article-img">
-										<img src="/storage/img/img-thumb-1.jpg" alt="">
+										<img src="/storage/cover_images/300x250/{{$post->cover_img}}" alt="">
 									</div>
 									<div class="article-body">
 										<ul class="article-info">
-											<li class="article-category"><a href="#">News</a></li>
+											<li class="article-category"><a href="#">{{$post->category->name}}</a></li>
 											<li class="article-type"><i class="fa fa-video-camera"></i></li>
 										</ul>
-										<h3 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h3>
+										<h3 class="article-title"><a href="/article/{{$post->id}}/{{$post->url_slug}}">{{$post->title}}</a></h3>
 										<ul class="article-meta">
-											<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-											<li><i class="fa fa-comments"></i> 33</li>
+											<li><i class="fa fa-clock-o"></i> {{date_format($post->created_at,"d M Y H:i")}}</li>
 										</ul>
 									</div>
 								</article>
 								<!-- /ARTICLE -->
-							
-								<!-- ARTICLE -->
-								<article class="article thumb-article">
-									<div class="article-img">
-										<img src="/storage/img/img-thumb-2.jpg" alt="">
-									</div>
-									<div class="article-body">
-										<ul class="article-info">
-											<li class="article-category"><a href="#">News</a></li>
-											<li class="article-type"><i class="fa fa-video-camera"></i></li>
-										</ul>
-										<h3 class="article-title"><a href="#">Duis urbanitas eam in, tempor consequat.</a></h3>
-										<ul class="article-meta">
-											<li><i class="fa fa-clock-o"></i> January 31, 2017</li>
-											<li><i class="fa fa-comments"></i> 33</li>
-										</ul>
-									</div>
-								</article>
-								<!-- /ARTICLE -->
+								@endforeach
+								@endif
 							</div>
 							<!-- /owl carousel 4 -->
 						</div>
 						<!-- /article widget -->
 						
-						<!-- galery widget -->
-						<div class="widget galery-widget">
+						<!-- tranding tag widget -->
+						<div class="widget">
 							<div class="widget-title">
-								<h2 class="title">Flickr Photos</h2>
+								<h2 class="title">Topik Populer</h2>
 							</div>
 							<ul>
-								<li><a href="#"><img src="/storage/img/img-widget-3.jpg" alt=""></a></li>
-								<li><a href="#"><img src="/storage/img/img-widget-4.jpg" alt=""></a></li>
-								<li><a href="#"><img src="/storage/img/img-widget-5.jpg" alt=""></a></li>
-								<li><a href="#"><img src="/storage/img/img-widget-6.jpg" alt=""></a></li>
-								<li><a href="#"><img src="/storage/img/img-widget-7.jpg" alt=""></a></li>
-								<li><a href="#"><img src="/storage/img/img-widget-8.jpg" alt=""></a></li>
-								<li><a href="#"><img src="/storage/img/img-widget-9.jpg" alt=""></a></li>
-								<li><a href="#"><img src="/storage/img/img-widget-10.jpg" alt=""></a></li>
+								<li class = "tag-popular">
+									<span class="tag-hastag">#</span> 
+									<a class="tag-link" href="#">
+										<span class="tag-text">CPNS</span>
+									</a>
+								</li>
+								<li class = "tag-popular">
+									<span class="tag-hastag">#</span> 
+									<a class="tag-link" href="#">
+										<span class="tag-text">RATNA SAROMPAET</span>
+									</a>
+								</li>
+								<li class = "tag-popular">
+									<span class="tag-hastag">#</span> 
+									<a class="tag-link" href="#">
+										<span class="tag-text">PILPRES</span>
+									</a>
+								</li>
+								<li class = "tag-popular">
+									<span class="tag-hastag">#</span> 
+									<a class="tag-link" href="#">
+										<span class="tag-text">2019GANTIPRESIDEN</span>
+									</a>
+								</li>
+								<li class = "tag-popular">
+									<span class="tag-hastag">#</span> 
+									<a class="tag-link" href="#">
+										<span class="tag-text">UNINSTALL GOJEK</span>
+									</a>
+								</li>
 							</ul>
 						</div>
-						<!-- /galery widget -->
+						<!-- /trending-tag widget -->
 						
 						<!-- tweets widget -->
 						<div class="widget tweets-widget">

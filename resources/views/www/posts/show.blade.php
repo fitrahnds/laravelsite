@@ -1,4 +1,4 @@
-@extends('web.layouts.detail')
+@extends('www.layouts.detail')
 
 @section('content')
 	<div class="header-ads">
@@ -376,9 +376,6 @@
 	@if(!Auth::guest() && Auth::user()->id === $post->user_id)
 		<hr>
 		<a href="/article/{{$post->id}}/{{$post->url_slug}}/edit" class="btn btn-primary">Edit</a>
-		{!! Form::open(['action'=>['PostsController@destroy', $post->id], 'method'=>'POST', 'class'=>'pull-right']) !!}
-			{{Form::hidden('_method', 'DELETE')}}
-			{{Form::submit('Delete', ['class'=>'btn btn-danger'])}}
-		{!! Form::close() !!}
+		<a href="/article/{{$post->id}}/{{$post->url_slug}}/delete" class="btn btn-danger pull-right">Delete</a>
 	@endif
 @endsection

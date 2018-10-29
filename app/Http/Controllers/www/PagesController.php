@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\www;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Post;
 use App\Category;
@@ -20,18 +21,18 @@ class PagesController extends Controller
             'category' => Category::all()
         );
 		//echo "<pre>".print_r($posts, true)."</pre>";
-        return view('web.pages.index')->with($data);
+        return view('www.pages.index')->with($data);
 	}
 	public function about(){
 		$title = "About";
-		return view('web.pages.about')->with('title', $title);
+		return view('www.pages.about')->with('title', $title);
 	}
 	public function services(){
 		//$title = "Services";
 		$data = array(
 				'title' => 'Sevices',
-				'services' => ['Programming','SEO','Web Design']
+				'services' => ['Programming','SEO','www Design']
 		);
-		return view('web.pages.services')->with($data);
+		return view('www.pages.services')->with($data);
 	}
 }

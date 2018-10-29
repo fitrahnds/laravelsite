@@ -1,7 +1,8 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\www;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use App\Post;
@@ -39,13 +40,12 @@ class PostsController extends Controller
 
         // echo "<pre>".print_r($posts, true)."</pre>";
         // die();
-        
         $data = array(
             'posts' => Post::orderBy('created_at', 'desc')->paginate(10),
             // 'posts' => $posts,
             'category' => Category::all()
         );
-        return view('web.posts.index')->with($data);
+        return view('www.posts.index')->with($data);
     }
 
     /**
@@ -97,11 +97,11 @@ class PostsController extends Controller
             $image_resize->resize(85, 85);
             $image_resize->save(public_path('storage/cover_images/85x85/' .$fileNameToStore));
             $image_resize = Image::make($image->getRealPath());          
-            $image_resize->resize(250, 125);
-            $image_resize->save(public_path('storage/cover_images/250x125/' .$fileNameToStore));
+            $image_resize->resize(200, 100);
+            $image_resize->save(public_path('storage/cover_images/200x100/' .$fileNameToStore));
             $image_resize = Image::make($image->getRealPath());          
-            $image_resize->resize(345, 200);
-            $image_resize->save(public_path('storage/cover_images/345x200/' .$fileNameToStore));
+            $image_resize->resize(300, 250);
+            $image_resize->save(public_path('storage/cover_images/300x250/' .$fileNameToStore));
         } else {
             $fileNameToStore = "noimage.jpg";
         }
@@ -132,12 +132,16 @@ class PostsController extends Controller
             $post = Post::where('id', $id)->where('url_slug', $url_slug)->first();
         }else{
             $post = Post::find($id);
-            return redirect('/article/'.$post->id.'/'.$post->url_slug);
+            if($post){
+                return redirect('/article/'.$post->id.'/'.$post->url_slug);
+            }else{
+                return abort(404);
+            }
         }
         if($post)
         {
             $post->addPageView();
-            return view('web.posts.show')->with('post', $post);
+            return view('www.posts.show')->with('post', $post);
         }
         return abort(404);
         //$post->addPageView();
@@ -201,11 +205,11 @@ class PostsController extends Controller
             $image_resize->resize(85, 85);
             $image_resize->save(public_path('storage/cover_images/85x85/' .$fileNameToStore));
             $image_resize = Image::make($image->getRealPath());          
-            $image_resize->resize(250, 125);
-            $image_resize->save(public_path('storage/cover_images/250x125/' .$fileNameToStore));
+            $image_resize->resize(200, 100);
+            $image_resize->save(public_path('storage/cover_images/200x100/' .$fileNameToStore));
             $image_resize = Image::make($image->getRealPath());          
-            $image_resize->resize(345, 200);
-            $image_resize->save(public_path('storage/cover_images/345x200/' .$fileNameToStore));
+            $image_resize->resize(300, 250);
+            $image_resize->save(public_path('storage/cover_images/300x250/' .$fileNameToStore));
         }
 
         $post = Post::find($id);
@@ -220,8 +224,8 @@ class PostsController extends Controller
                 //Delete Image
                 Storage::delete('public/cover_images/original/'.$post->cover_img);
                 Storage::delete('public/cover_images/85x85/'.$post->cover_img);
-                Storage::delete('public/cover_images/250x125/'.$post->cover_img);
-                Storage::delete('public/cover_images/345x200/'.$post->cover_img);
+                Storage::delete('public/cover_images/200x100/'.$post->cover_img);
+                Storage::delete('public/cover_images/300x250/'.$post->cover_img);
             }
             $post->cover_img = $fileNameToStore;
         }

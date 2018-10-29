@@ -11,15 +11,19 @@
 |
 */
 
-Route::get('/', 'PagesController@index');
-Route::get('/about', 'PagesController@about');
-Route::get('/services', 'PagesController@services');
-Route::get('/article/{id}/{url_slug?}', 'PostsController@show');
-Route::get('/article/{id}/{url_slug}/edit', 'PostsController@edit');
+Route::namespace('www')->group(function () {
+    Route::get('/', 'PagesController@index');
+    Route::get('/about', 'PagesController@about');
+    Route::get('/services', 'PagesController@services');
+    Route::get('/article/{id}/{url_slug?}', 'PostsController@show');
+    Route::get('/article/{id}/{url_slug}/edit', 'PostsController@edit');
+    Route::get('/article/{id}/{url_slug}/delete', 'PostsController@destroy');
+    Route::resource('/posts', 'PostsController');
+});
 
-Route::resource('/posts', 'PostsController');
+Route::namespace('backend')->group(function () {
+    Route::get('/dashboard', 'DashboardController@index');
+    Route::get('/admin', 'DashboardController@admin');
+});
 
 Auth::routes();
-
-Route::get('/dashboard', 'AdminController@index');
-Route::get('/admin', 'AdminController@admin');

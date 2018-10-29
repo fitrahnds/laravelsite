@@ -95,8 +95,7 @@
                                 <a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a>
                             </td>
                             <td>
-                                {!! Form::open(['action'=>['PostsController@destroy', $post->id], 'method'=>'POST']) !!} {{Form::hidden('_method', 'DELETE')}}
-                                {{Form::submit('Delete', ['class'=>'btn btn-danger'])}} {!! Form::close() !!}
+                                <a href="/posts/{{$post->id}}/delete" class="btn btn-danger pull-right">Delete</a>
                             </td>
                         </tr>
                         @endforeach

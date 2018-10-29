@@ -1,11 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\backend;
+
+use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\User;
 
-class AdminController extends Controller
+class DashboardController extends Controller
 {
     /**
      * Create a new controller instance.

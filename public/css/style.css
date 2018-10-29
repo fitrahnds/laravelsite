@@ -65,7 +65,7 @@ h5 {
 
 a {
 	font-weight:400;
-	color: #07090c;
+	color: #333;
 }
 
 a:hover,
@@ -776,6 +776,31 @@ textarea.input {
 	margin-top:0px;
 }
 
+.widget .tag-popular{
+	margin-bottom: 6px;
+}
+
+.widget .tag-popular .tag-hastag {
+    color: #EF233C;
+    font-size: 14px;
+    font-weight: 700;
+    padding-right: 23px;
+    vertical-align: top;
+}
+
+.widget .tag-popular .tag-link {
+	border-bottom: solid 1px #AAA;
+	padding-bottom: 6px;
+    display: inline-block;
+    width: calc(100% - 40px);
+}
+
+.widget .tag-popular .tag-link .tag-text{
+    font-size: 12px;
+	font-weight: 700;
+	line-height: 1em;
+    text-transform: uppercase;
+}
 /*------------------------------------*\
 	Social Widget
 \*------------------------------------*/
