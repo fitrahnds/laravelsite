@@ -21,7 +21,8 @@
                                 <img src="/storage/cover_images/200x100/{{$post->cover_img}}">
                             </td>
                             <td>
-                                    <a href="/posts/{{$post->id}}/edit"><h4>{{$post->title}}</h4></a>
+                                <p><strong>{{$post->category->name}}</strong>&nbsp;<span style="color:#2592ff">{{date_format($post->created_at, 'd M Y')}}</span></p>
+                                <a style="color:#5C5C5C" href="/posts/{{$post->id}}/edit"><h4>{{$post->title}}</h4></a>
                                 <p>{{$post->short_description}}</p>
                             </td>
                             <td>
