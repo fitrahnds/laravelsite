@@ -35,7 +35,7 @@ class PostsController extends Controller
             // 'posts' => $posts,
             'category' => Category::all()
         );
-        return view('backend.pages.dashboard')->with($data);
+        return view('backend.pages.posts')->with($data);
     }
 
     public function create()
@@ -70,7 +70,7 @@ class PostsController extends Controller
             //Filename to store
             $fileNameToStore = $filename.'_'.time().'.'.$extension;
             //Upload Image
-            $path = $image->storeAs('public/cover_images/original/', $fileNameToStore);
+            $path = $request->file('cover_img')->storeAs('public/cover_images/original', $fileNameToStore);
             //Resize Image
             $image_resize = Image::make($image->getRealPath());          
             $image_resize->resize(85, 85);
@@ -96,7 +96,7 @@ class PostsController extends Controller
         $post->cover_img = $fileNameToStore;
         $post->save();
         
-        return redirect('/article')->with('success', 'Post Created');
+        return redirect('/posts')->with('success', 'Post Created');
     }
 
     public function edit($id)
@@ -109,7 +109,7 @@ class PostsController extends Controller
         
         if(auth()->user()->id !== $post->user_id)
         {
-            return redirect('/article')->with('error', 'Unauthorized Page');
+            return redirect('/dashboard')->with('error', 'Unauthorized Page');
         }
         return view('backend.pages.edit')->with($data);
     }
@@ -169,21 +169,24 @@ class PostsController extends Controller
         }
         $post->save();
         
-        return redirect('/article/'.$id)->with('success', 'Post Updated');
+        return redirect('/posts/')->with('success', 'Post Updated');
     }
 
     public function destroy($id)
     {
         $post = Post::find($id);
         if(auth()->user()->id !== $post->user_id){
-            return redirect('/dashboard')->with('error', 'Unauthorized Page');
+            return redirect('/posts')->with('error', 'Unauthorized Page');
         }
         if($post->cover_img !== "noimage.jpg"){
             //Delete Image
-            Storage::delete('public/cover_images/'.$post->cover_img);
+            Storage::delete('public/cover_images/original/'.$post->cover_img);
+            Storage::delete('public/cover_images/85x85/'.$post->cover_img);
+            Storage::delete('public/cover_images/200x100/'.$post->cover_img);
+            Storage::delete('public/cover_images/300x250/'.$post->cover_img);
         }
         $post->delete();
         
-        return redirect('/dashboard/')->with('success', 'Post Deleted');
+        return redirect('/posts/')->with('success', 'Post Deleted');
     }
 }

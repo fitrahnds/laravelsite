@@ -4,7 +4,7 @@
     <div id="center-header">
         <div class="container">
             <div class="header-logo">
-                <a href="#" class="logo"><img src="/storage/img/logo.png" alt=""></a>
+            <a href="{{URL::to('/')}}" class="logo"><img src="/storage/img/logo.png" alt=""></a>
             </div>
         </div>
     </div>
@@ -18,7 +18,7 @@
                     <a href="#" class="logo"><img src="/storage/img/logo-alt.png" alt=""></a>
                 </div>
                 <ul class="main-nav nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
+                    <li class="active"><a href="{{URL::to('/')}}">Home</a></li>
                     <li><a href="#">News</a></li>
                     <li><a href="#">Sport</a></li>
                     <li><a href="#">Lifestyle</a></li>

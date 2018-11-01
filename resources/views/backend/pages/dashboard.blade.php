@@ -65,47 +65,4 @@
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-md-8 col-md-offset-2">
-        <div class="panel panel-default">
-            <div class="panel-heading">Dashboard</div>
-
-            <div class="panel-body">
-                @if (session('status'))
-                <div class="alert alert-success">
-                    {{ session('status') }}
-                </div>
-                @endif
-                <a href="/posts/create" class="btn btn-primary">Create Post</a>
-                <h4>You Blog Post!</h4>
-                @if(count($posts)>0)
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>Title</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($posts as $post)
-                        <tr>
-                            <td>{{$post->title}}</td>
-                            <td>
-                                <a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a>
-                            </td>
-                            <td>
-                                <a href="/posts/{{$post->id}}/delete" class="btn btn-danger pull-right">Delete</a>
-                            </td>
-                        </tr>
-                        @endforeach
-                    </tbody>
-                </table>
-                @else
-                <p>You have no posts</p>
-                @endif
-            </div>
-        </div>
-    </div>
-</div>
 @endsection
