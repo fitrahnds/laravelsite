@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use CyrildeWit\PageViewCounter\Traits\HasPageViewCounter;
@@ -18,9 +18,9 @@ class Post extends Model
     protected $fillable = [ 'title', 'body' ];
 
     public function user(){
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\Models\User');
     }
     public function category(){
-        return $this->belongsTo('App\Category');
+        return $this->belongsTo('App\Models\Category');
     }
 }

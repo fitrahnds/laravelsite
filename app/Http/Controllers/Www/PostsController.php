@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Controllers\www;
+namespace App\Http\Controllers\Www;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
-use App\Post;
-use App\Category;
+use App\Models\Post;
+use App\Models\Category;
 use Carbon\Carbon;
 use Intervention\Image\ImageManagerStatic as Image;
 //use DB;

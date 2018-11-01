@@ -11,7 +11,7 @@
 |
 */
 
-Route::namespace('www')->group(function () {
+Route::namespace('Www')->group(function () {
     Route::get('/', 'PagesController@index');
     Route::get('/about', 'PagesController@about');
     Route::get('/services', 'PagesController@services');
@@ -21,7 +21,7 @@ Route::namespace('www')->group(function () {
     Route::resource('/posts', 'PostsController');
 });
 
-Route::namespace('backend')->group(function () {
+Route::namespace('Backend')->group(function () {
     Route::get('/dashboard', 'DashboardController@index');
     Route::get('/admin', 'DashboardController@admin');
 });
