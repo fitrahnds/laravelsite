@@ -16,14 +16,13 @@ Route::namespace('Www')->group(function () {
     Route::get('/about', 'PagesController@about');
     Route::get('/services', 'PagesController@services');
     Route::get('/article/{id}/{url_slug?}', 'PostsController@show');
-    Route::get('/article/{id}/{url_slug}/edit', 'PostsController@edit');
-    Route::get('/article/{id}/{url_slug}/delete', 'PostsController@destroy');
-    Route::resource('/posts', 'PostsController');
 });
 
 Route::namespace('Backend')->group(function () {
     Route::get('/dashboard', 'DashboardController@index');
     Route::get('/admin', 'DashboardController@admin');
+    Route::get('/posts/{id}/delete', 'PostsController@destroy');
+    Route::resource('/posts', 'PostsController');
 });
 
 Auth::routes();

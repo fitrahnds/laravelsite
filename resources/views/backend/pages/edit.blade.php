@@ -8,7 +8,7 @@
 					<h3 class="box-title">Edit Post</h3>
 				</div>
 				<div class="box-body">
-					{!! Form::open(['action' => ['PostsController@update', $post->id], 'method'=>'POST', 'enctype' => 'multipart/form-data']) !!}
+					{!! Form::open(['action' => ['Backend\PostsController@update', $post->id], 'method'=>'POST', 'enctype' => 'multipart/form-data']) !!}
 						<div class="form-group">
 							{{Form::label('title', 'Title')}}
 							{{Form::text('title', $post->title, ['class'=>'form-control', 'placeholder'=>'Input Title', 'autocomplete'=>'off', 'maxlength'=>'75', 'oninput'=>'document.getElementById("url").value = convertToSlug(document.getElementById("title").value);'])}}
