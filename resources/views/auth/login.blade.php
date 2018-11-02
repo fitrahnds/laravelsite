@@ -61,6 +61,11 @@
                             </div>
                         </div>
                     </form>
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+                                <a href="{{ url('/redirect') }}" class="btn btn-danger"><i class="fa fa-google-plus"></i> Google</a>
+                            </div>
+                        </div>
                 </div>
             </div>
         </div>

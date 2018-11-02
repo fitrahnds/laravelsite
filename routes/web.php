@@ -25,4 +25,10 @@ Route::namespace('Backend')->group(function () {
     Route::resource('/posts', 'PostsController');
 });
 
+Route::namespace('Auth')->group(function () {
+    Route::get('/redirect', 'LoginController@redirectToProvider');
+    Route::get('/callback', 'LoginController@handleProviderCallback');
+    /*Route::get('auth/{provider}', 'AuthController@redirectToProvider');
+    Route::get('auth/{provider}/callback', 'AuthController@handleProviderCallback');*/
+});
 Auth::routes();

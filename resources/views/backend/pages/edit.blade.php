@@ -36,7 +36,7 @@
 					<div class="form-group">
 						<label>Tumbnail</label>
 						@if($post->cover_img)
-							<img style="margin-bottom:10px" src="/storage/cover_images/200x100/{{$post->cover_img}}">
+							<img style="margin-bottom:10px;display:block;width:100%;" src="/storage/cover_images/200x100/{{$post->cover_img}}">
 						@endif
 						{{Form::file('cover_img')}}
 					</div>

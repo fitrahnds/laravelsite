@@ -11,13 +11,13 @@
 			<!-- ARTICLE -->
 			<article class="article thumb-article">
 				<div class="article-img">
-					<img style="height:375px" src="/storage/cover_images/original/{{$post->cover_img}}" alt="">
+				<img style="height:375px" src="{{URL::to('/storage/cover_images/original/'.$post->cover_img)}}" alt="">
 				</div>
 				<div class="article-body">
 					<ul class="article-info">
 						<li class="article-category"><a href="#">{{$post->category->name}}</a></li>
 					</ul>
-					<h2 class="article-title"><a href="/article/{{$post->id}}/{{$post->url_slug}}">{{$post->title}}</a></h2>
+					<h2 class="article-title"><a href="{{URL::to('/article/'.$post->id.'/'.$post->url_slug)}}">{{$post->title}}</a></h2>
 					<ul class="article-meta">
 						<li><i class="fa fa-clock-o"></i> {{$post->created_at}}</li>
 					</ul>
@@ -46,7 +46,7 @@
 							<article class="article row-article">
 								<div class="article-img">
 									<a href="#">
-										<img style="width:200px;height:100px" src="/storage/cover_images/200x100/{{$post->cover_img}}" alt="{{$post->title}}">
+										<img style="width:200px;height:100px" src="{{URL::to('/storage/cover_images/200x100/'.$post->cover_img)}}" alt="{{$post->title}}">
 									</a>
 								</div>
 								<div class="article-body">
@@ -54,7 +54,7 @@
 										<li class="article-category"><a href="#">{{$post->category->name}}</a></li>&nbsp;
 										<li class="article-meta"><i class="fa fa-clock-o"></i> {{getTimeDuration(date_format($post->created_at,"d M Y H:i:s"))}}</li>
 									</ul>
-									<h3 class="article-title"><a href="/article/{{$post->id}}/{{$post->url_slug}}">{{$post->title}}</a></h3>
+									<h3 class="article-title"><a href="{{URL::to('/article/'.$post->id.'/'.$post->url_slug)}}">{{$post->title}}</a></h3>
 									<div class="article-shortdesc">
 										@if (strlen($post->short_description) > 125)
 											<span>{!!substr($post->short_description, 0, 125)!!}</span>
@@ -86,14 +86,14 @@
 								<!-- ARTICLE -->
 								<article class="article thumb-article">
 									<div class="article-img">
-										<img src="/storage/cover_images/300x250/{{$post->cover_img}}" alt="">
+										<img src="{{URL::to('/storage/cover_images/300x250/'.$post->cover_img)}}" alt="">
 									</div>
 									<div class="article-body">
 										<ul class="article-info">
 											<li class="article-category"><a href="#">{{$post->category->name}}</a></li>
 											<li class="article-type"><i class="fa fa-video-camera"></i></li>
 										</ul>
-										<h3 class="article-title"><a href="/article/{{$post->id}}/{{$post->url_slug}}">{{$post->title}}</a></h3>
+										<h3 class="article-title"><a href="{{URL::to('/article/'.$post->id.'/'.$post->url_slug)}}">{{$post->title}}</a></h3>
 										<ul class="article-meta">
 											<li><i class="fa fa-clock-o"></i> {{date_format($post->created_at,"d M Y H:i")}}</li>
 										</ul>

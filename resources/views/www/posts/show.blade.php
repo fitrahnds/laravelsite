@@ -27,7 +27,7 @@
 							<a onclick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" href="https://plus.google.com/share?url={{Request::url()}}" class="google"><i class="fa fa-google-plus"></i></a>
 						</div>
 						<div class="article-main-img">
-							<img src="/storage/cover_images/original/{{$post->cover_img}}" alt="{{$post->title}}">
+							<img src="{{URL::to('/storage/cover_images/original/'.$post->cover_img)}}" alt="{{$post->title}}">
 						</div>
 						<div class="article-body">
 							<ul class="article-info">
