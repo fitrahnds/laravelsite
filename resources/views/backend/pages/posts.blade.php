@@ -18,7 +18,7 @@
                         @foreach($posts as $post)
                         <tr>
                             <td>
-                                <img src="/storage/cover_images/200x100/{{$post->cover_img}}">
+                                <img src="{{URL::to('/storage/cover_images/200x100/'.$post->cover_img)}}">
                             </td>
                             <td>
                                 <p><strong>{{$post->category->name}}</strong>&nbsp;<span style="color:#2592ff">{{date_format($post->created_at, 'd M Y')}}</span></p>

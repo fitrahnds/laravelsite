@@ -1,7 +1,7 @@
 @extends('www.layouts.index')
 
 @section('content')
-<div class="container">
+<br>
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-default">
@@ -54,21 +54,26 @@
                                 <button type="submit" class="btn btn-primary">
                                     Login
                                 </button>
-
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
                                     Forgot Your Password?
                                 </a>
                             </div>
                         </div>
-                    </form>
                         <div class="form-group row">
-                            <div class="col-md-6 offset-md-4">
-                                <a href="{{ url('/redirect') }}" class="btn btn-danger"><i class="fa fa-google-plus"></i> Google</a>
+                            <div class="col-md-8 col-md-offset-4">
+                                <strong>OR Login With</strong>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <div class="col-md-8 col-md-offset-4">
+                                <a href="{{ url('/redirect') }}" class="btn btn-danger">
+                                    <i class="fa fa-google-plus"></i> Google
+                                </a>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection
