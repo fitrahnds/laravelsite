@@ -106,7 +106,7 @@ class PostsController extends Controller
         
         if(auth()->user()->id !== $post->user_id)
         {
-            return redirect('/dashboard')->with('error', 'Unauthorized Page');
+            return redirect('/posts')->with('error', 'Unauthorized Page');
         }
         return view('backend.pages.edit')->with($data);
     }

@@ -42,7 +42,7 @@
     <script src="{{ asset('js/adminlte.min.js') }}"></script>
     <script src="{{ asset('/vendor/unisharp/laravel-ckeditor/ckeditor.js') }}"></script>
     <script>
-        CKEDITOR.replace( 'article-ckeditor' );
+        var editorEl=document.getElementById("article-ckeditor");editorEl&&CKEDITOR.replace("article-ckeditor");
     </script>
 </body>
 </html>

@@ -13,7 +13,13 @@
                 @endif
                 <a href="/posts/create" class="btn btn-primary"><i class="fa fa-plus"></i>&nbsp; Create Post</a>
                 @if(count($posts)>0)
+                <div style="overflow-x:auto;">
                 <table class="table table-striped">
+                    <thead>
+                        <th>Tumbnail</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                    </thead>
                     <tbody>
                         @foreach($posts as $post)
                         <tr>
@@ -36,6 +42,7 @@
                         @endforeach
                     </tbody>
                 </table>
+                </div>
                 @else
                 <p>You have no posts</p>
                 @endif
